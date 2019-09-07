@@ -33,17 +33,57 @@ class User implements UserInterface
      */
     private $password;
 
-    public function getId():
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $phone_number;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $street_number;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $street_type;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $street_name;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $postal_code;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commune;
+
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getEmail():
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(string $email)
+    public function setEmail($email)
     {
         $this->email = $email;
 
@@ -72,7 +112,7 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): self
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 
@@ -82,12 +122,12 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return (string) $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword($password)
     {
         $this->password = $password;
 
@@ -109,5 +149,101 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getPhoneNumber()
+    {
+        return $this->phone_number;
+    }
+
+    public function setPhoneNumber($phone_number)
+    {
+        $this->phone_number = $phone_number;
+
+        return $this;
+    }
+
+    public function getStreetNumber()
+    {
+        return $this->street_number;
+    }
+
+    public function setStreetNumber($street_number)
+    {
+        $this->street_number = $street_number;
+
+        return $this;
+    }
+
+    public function getStreetType()
+    {
+        return $this->street_type;
+    }
+
+    public function setStreetType($street_type)
+    {
+        $this->street_type = $street_type;
+
+        return $this;
+    }
+
+    public function getStreetName()
+    {
+        return $this->street_name;
+    }
+
+    public function setStreetName( $street_name)
+    {
+        $this->street_name = $street_name;
+
+        return $this;
+    }
+
+    public function getPostalCode()
+    {
+        return $this->postal_code;
+    }
+
+    public function setPostalCode( $postal_code)
+    {
+        $this->postal_code = $postal_code;
+
+        return $this;
+    }
+
+    public function getCommune()
+    {
+        return $this->commune;
+    }
+
+    public function setCommune($commune)
+    {
+        $this->commune = $commune;
+
+        return $this;
     }
 }
