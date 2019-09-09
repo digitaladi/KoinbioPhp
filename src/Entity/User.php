@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -72,6 +74,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $commune;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Fiche", mappedBy="user_id")
+     */
+    private $fiches;
+
+    public function __construct()
+    {
+        $this->fiches = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -243,6 +255,37 @@ class User implements UserInterface
     public function setCommune($commune)
     {
         $this->commune = $commune;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fiche[]
+     */
+    public function getFiches(): Collection
+    {
+        return $this->fiches;
+    }
+
+    public function addFich(Fiche $fich): self
+    {
+        if (!$this->fiches->contains($fich)) {
+            $this->fiches[] = $fich;
+            $fich->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFich(Fiche $fich): self
+    {
+        if ($this->fiches->contains($fich)) {
+            $this->fiches->removeElement($fich);
+            // set the owning side to null (unless already changed)
+            if ($fich->getUserId() === $this) {
+                $fich->setUserId(null);
+            }
+        }
 
         return $this;
     }
