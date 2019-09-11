@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,10 +38,7 @@ class Fiche
      */
     private $type;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="fiches")
-     */
-    private $user_id;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -111,6 +110,16 @@ class Fiche
      */
     private $conseil;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="id_fiche")
+     */
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -164,17 +173,7 @@ class Fiche
         return $this;
     }
 
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
 
-    public function setUserId( $user_id)
-    {
-        $this->user_id = $user_id;
-
-        return $this;
-    }
 
     public function getImage()
     {
@@ -339,6 +338,34 @@ class Fiche
     public function setConseil($conseil)
     {
         $this->conseil = $conseil;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user)
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addIdFiche($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user)
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeIdFiche($this);
+        }
 
         return $this;
     }
