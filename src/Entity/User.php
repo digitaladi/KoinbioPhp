@@ -75,14 +75,28 @@ class User implements UserInterface
      */
     private $commune;
 
+
+
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Fiche", mappedBy="user_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="user_id")
      */
-    private $fiches;
+    private $commentaires;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Fiche", inversedBy="users")
+     */
+    private $fiche;
+
+
+
+
 
     public function __construct()
     {
-        $this->fiches = new ArrayCollection();
+
+        $this->commentaires = new ArrayCollection();
+        $this->id_fiche = new ArrayCollection();
+        $this->fiche = new ArrayCollection();
     }
 
     public function getId()
@@ -259,34 +273,68 @@ class User implements UserInterface
         return $this;
     }
 
+
+
     /**
-     * @return Collection|Fiche[]
+     * @return Collection|Commentaire[]
      */
-    public function getFiches(): Collection
+    public function getCommentaires()
     {
-        return $this->fiches;
+        return $this->commentaires;
     }
 
-    public function addFich(Fiche $fich): self
+    public function addCommentaire(Commentaire $commentaire)
     {
-        if (!$this->fiches->contains($fich)) {
-            $this->fiches[] = $fich;
-            $fich->setUserId($this);
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setUserId($this);
         }
 
         return $this;
     }
 
-    public function removeFich(Fiche $fich): self
+    public function removeCommentaire(Commentaire $commentaire)
     {
-        if ($this->fiches->contains($fich)) {
-            $this->fiches->removeElement($fich);
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
             // set the owning side to null (unless already changed)
-            if ($fich->getUserId() === $this) {
-                $fich->setUserId(null);
+            if ($commentaire->getUserId() === $this) {
+                $commentaire->setUserId(null);
             }
         }
 
         return $this;
     }
+
+    /**
+     * @return Collection|Fiche[]
+     */
+    public function getFiche(): Collection
+    {
+        return $this->fiche;
+    }
+
+    public function addFiche(Fiche $fiche)
+    {
+        if (!$this->fiche->contains($fiche)) {
+            $this->fiche[] = $fiche;
+        }
+
+        return $this;
+    }
+
+    public function removeFiche(Fiche $fiche)
+    {
+        if ($this->fiche->contains($fiche)) {
+            $this->fiche->removeElement($fiche);
+        }
+
+        return $this;
+    }
+
+
+
+
+
+
 }

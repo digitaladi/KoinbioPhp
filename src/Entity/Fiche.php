@@ -110,10 +110,29 @@ class Fiche
      */
     private $conseil;
 
+
+
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="id_fiche")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TypePlantes", inversedBy="fiches")
+     */
+    private $typePlante;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\ReceptablePlante", cascade={"persist", "remove"})
+     */
+    private $receptablePlante;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CategorieFiche", inversedBy="fiches")
+     */
+    private $categorieFiche;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="fiche")
      */
     private $users;
+
+
 
     public function __construct()
     {
@@ -342,6 +361,44 @@ class Fiche
         return $this;
     }
 
+
+
+    public function getTypePlante()
+    {
+        return $this->typePlante;
+    }
+
+    public function setTypePlante($typePlante)
+    {
+        $this->typePlante = $typePlante;
+
+        return $this;
+    }
+
+    public function getReceptablePlante()
+    {
+        return $this->receptablePlante;
+    }
+
+    public function setReceptablePlante($receptablePlante)
+    {
+        $this->receptablePlante = $receptablePlante;
+
+        return $this;
+    }
+
+    public function getCategorieFiche()
+    {
+        return $this->categorieFiche;
+    }
+
+    public function setCategorieFiche($categorieFiche)
+    {
+        $this->categorieFiche = $categorieFiche;
+
+        return $this;
+    }
+
     /**
      * @return Collection|User[]
      */
@@ -354,7 +411,7 @@ class Fiche
     {
         if (!$this->users->contains($user)) {
             $this->users[] = $user;
-            $user->addIdFiche($this);
+            $user->addFiche($this);
         }
 
         return $this;
@@ -364,9 +421,11 @@ class Fiche
     {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
-            $user->removeIdFiche($this);
+            $user->removeFiche($this);
         }
 
         return $this;
     }
+
+
 }

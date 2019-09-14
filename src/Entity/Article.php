@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,29 +48,44 @@ class Article
      */
     private $image;
 
-    public function getId(): ?int
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="id_article")
+     */
+    private $commentaires;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CategorieArticle")
+     */
+    private $id_categorieArticle;
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+    }
+
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitre()
     {
         return $this->titre;
     }
 
-    public function setTitre(string $titre): self
+    public function setTitre(string $titre)
     {
         $this->titre = $titre;
 
         return $this;
     }
 
-    public function getCorp(): ?string
+    public function getCorp()
     {
         return $this->corp;
     }
 
-    public function setCorp(string $corp): self
+    public function setCorp($corp)
     {
         $this->corp = $corp;
 
@@ -119,6 +136,49 @@ class Article
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setIdArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getIdArticle() === $this) {
+                $commentaire->setIdArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getIdCategorieArticle(): ?CategorieArticle
+    {
+        return $this->id_categorieArticle;
+    }
+
+    public function setIdCategorieArticle(?CategorieArticle $id_categorieArticle): self
+    {
+        $this->id_categorieArticle = $id_categorieArticle;
 
         return $this;
     }
