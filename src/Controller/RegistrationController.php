@@ -33,8 +33,8 @@ public function register(Request $request, UserPasswordEncoderInterface $encoder
     $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
 
-    var_dump($user->getRoles());
-    if($form->isSubmitted() and $form->isValid()){
+//    var_dump($user->getRoles());
+    if($form->isSubmitted() && $form->isValid()){
         $password = $encoder->encodePassword($user, $user->getPassword()) ;
         $user->setPassword($password);
 
@@ -42,11 +42,11 @@ public function register(Request $request, UserPasswordEncoderInterface $encoder
         $em->flush();
 
         $this->addFlash('success','Utilisateur enregistré');
-        return $this->redirectToRoute('index');
+        return $this->redirectToRoute('connexion');
     }
 
 
-    return $this->render('registration/index.html.twig', [
+    return $this->render('registration/register.html.twig', [
         "form" => $form->createView()
     ]);
 }

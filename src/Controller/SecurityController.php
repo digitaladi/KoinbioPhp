@@ -4,16 +4,31 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/security", name="security")
+     * @Route("/login", name="login")
      */
-    public function index()
+    public function login(AuthenticationUtils $authenticationUtils)
     {
-        return $this->render('security/index.html.twig', [
-            'controller_name' => 'SecurityController',
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUserName = $authenticationUtils->getLastUsername();
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUserName, 'error' => $error
         ]);
     }
+
+
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout(){
+
+    }
+
+
+
 }

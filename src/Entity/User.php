@@ -35,6 +35,9 @@ class User implements UserInterface
      */
     private $password;
 
+    //confirmation de mot de passe
+    public  $confirm_password;
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -309,7 +312,7 @@ class User implements UserInterface
     /**
      * @return Collection|Fiche[]
      */
-    public function getFiche(): Collection
+    public function getFiche()
     {
         return $this->fiche;
     }

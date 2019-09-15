@@ -21,6 +21,7 @@ class UserType extends AbstractType
             ->add('lastname',TextType::class)
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
+            ->add('confirm_password', PasswordType::class)
             ->add('phone_number', NumberType::class)
             ->add('street_number',NumberType::class)
             ->add('street_type', TextType::class)
@@ -28,7 +29,6 @@ class UserType extends AbstractType
             ->add('postal_code',NumberType::class)
             ->add('commune', TextType::class)
             ->add('submit', SubmitType::class)
-
         ;
     }
 
