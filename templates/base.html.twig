@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+    {# read and display just one flash message type #}
+    {% for message in app.flashes('success') %}
+{#        {{ dump(message) }}#}
+        <div class="alert">   {{ message }} </div>
+
+    {% endfor %}
+
+
+    {% for message in app.flashes('notice') %}
+        {#        {{ dump(message) }}#}
+        <div class="alert">   {{ message }} </div>
+
+    {% endfor %}
+
+
+    {% for message in app.flashes('success') %}
+        {#        {{ dump(message) }}#}
+        <div class="alert">   {{ message }} </div>
+
+    {% endfor %}
+
         {% block body %}
 
-        <p>C'est de la balle</p>
+
+
+
+
+
 
         {% endblock %}
         {% block javascripts %}{% endblock %}

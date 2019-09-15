@@ -3,16 +3,17 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MyController extends AbstractController
+class FicheController extends AbstractController
 {
     /**
-     * @Route("/", name="my")
+     * @Route("/fiche", name="fiche")
      */
     public function index()
     {
-    return $this->render("base.html.twig");
+        return $this->render('fiche/index.html.twig', [
+            'controller_name' => 'FicheController',
+        ]);
     }
 }

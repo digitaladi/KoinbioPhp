@@ -36,53 +36,53 @@ class ReceptablePlante
      */
     private $forme;
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName($name)
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getColor(): ?string
+    public function getColor()
     {
         return $this->color;
     }
 
-    public function setColor(?string $color): self
+    public function setColor($color)
     {
         $this->color = $color;
 
         return $this;
     }
 
-    public function getMatiere(): ?string
+    public function getMatiere()
     {
         return $this->matiere;
     }
 
-    public function setMatiere(?string $matiere): self
+    public function setMatiere($matiere)
     {
         $this->matiere = $matiere;
 
         return $this;
     }
 
-    public function getForme(): ?string
+    public function getForme()
     {
         return $this->forme;
     }
 
-    public function setForme(?string $forme): self
+    public function setForme($forme)
     {
         $this->forme = $forme;
 
