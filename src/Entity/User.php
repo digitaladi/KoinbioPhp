@@ -39,17 +39,17 @@ class User implements UserInterface
     public  $confirm_password;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $phone_number;
 
@@ -59,22 +59,22 @@ class User implements UserInterface
     private $street_number;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $street_type;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $street_name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $postal_code;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $commune;
 
@@ -89,6 +89,11 @@ class User implements UserInterface
      * @ORM\ManyToMany(targetEntity="App\Entity\Fiche", inversedBy="users")
      */
     private $fiche;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $username;
 
 
 
@@ -126,7 +131,7 @@ class User implements UserInterface
      */
     public function getUsername()
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
@@ -331,6 +336,13 @@ class User implements UserInterface
         if ($this->fiche->contains($fiche)) {
             $this->fiche->removeElement($fiche);
         }
+
+        return $this;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
 
         return $this;
     }

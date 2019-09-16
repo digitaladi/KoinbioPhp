@@ -42,7 +42,7 @@ public function register(Request $request, UserPasswordEncoderInterface $encoder
         $em->flush();
 
         $this->addFlash('success','Utilisateur enregistré');
-        return $this->redirectToRoute('connexion');
+        return $this->redirectToRoute('login');
     }
 
 
