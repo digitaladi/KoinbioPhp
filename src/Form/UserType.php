@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -14,6 +15,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
+
+    public  $roles  = array("admin" => "ROLE_ADMIN", "user" => "ROLE_USER", "biotor" => 'ROLE_BIOTOR');
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -30,6 +34,11 @@ class UserType extends AbstractType
             ->add('postal_code',NumberType::class)
             ->add('commune', TextType::class)
             ->add('submit', SubmitType::class)
+//            ->add('roles', ChoiceType::class, array('choices'=> $this->roles,
+//                'expanded'=>true,
+//                'mapped'=>true,
+//                'label' => 'form.roles',
+//                'translation_domain' => 'messages'))
         ;
     }
 

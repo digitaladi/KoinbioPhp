@@ -92,48 +92,48 @@ class Article
         return $this;
     }
 
-    public function getIsActif(): ?bool
+    public function getIsActif()
     {
         return $this->is_actif;
     }
 
-    public function setIsActif(bool $is_actif): self
+    public function setIsActif($is_actif)
     {
         $this->is_actif = $is_actif;
 
         return $this;
     }
 
-    public function getAuteur(): ?string
+    public function getAuteur()
     {
         return $this->auteur;
     }
 
-    public function setAuteur(string $auteur): self
+    public function setAuteur($auteur)
     {
         $this->auteur = $auteur;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreatedAt(\DateTimeInterface $created_at)
     {
         $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage($image)
     {
         $this->image = $image;
 
@@ -143,12 +143,12 @@ class Article
     /**
      * @return Collection|Commentaire[]
      */
-    public function getCommentaires(): Collection
+    public function getCommentaires()
     {
         return $this->commentaires;
     }
 
-    public function addCommentaire(Commentaire $commentaire): self
+    public function addCommentaire(Commentaire $commentaire)
     {
         if (!$this->commentaires->contains($commentaire)) {
             $this->commentaires[] = $commentaire;
@@ -158,7 +158,7 @@ class Article
         return $this;
     }
 
-    public function removeCommentaire(Commentaire $commentaire): self
+    public function removeCommentaire(Commentaire $commentaire)
     {
         if ($this->commentaires->contains($commentaire)) {
             $this->commentaires->removeElement($commentaire);
@@ -171,12 +171,12 @@ class Article
         return $this;
     }
 
-    public function getIdCategorieArticle(): ?CategorieArticle
+    public function getIdCategorieArticle()
     {
         return $this->id_categorieArticle;
     }
 
-    public function setIdCategorieArticle(?CategorieArticle $id_categorieArticle): self
+    public function setIdCategorieArticle(CategorieArticle $id_categorieArticle)
     {
         $this->id_categorieArticle = $id_categorieArticle;
 
