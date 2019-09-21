@@ -28,6 +28,11 @@ class TypePlantes
      */
     private $descriptif;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Fiche", mappedBy="typePlante")
+     */
+    private $fiches;
+
 
 
     public function __construct()
@@ -60,6 +65,37 @@ class TypePlantes
     public function setDescriptif($descriptif)
     {
         $this->descriptif = $descriptif;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fiche[]
+     */
+    public function getFiches(): Collection
+    {
+        return $this->fiches;
+    }
+
+    public function addFich(Fiche $fich): self
+    {
+        if (!$this->fiches->contains($fich)) {
+            $this->fiches[] = $fich;
+            $fich->setTypePlantes($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFich(Fiche $fich): self
+    {
+        if ($this->fiches->contains($fich)) {
+            $this->fiches->removeElement($fich);
+            // set the owning side to null (unless already changed)
+            if ($fich->getTypePlantes() === $this) {
+                $fich->setTypePlantes(null);
+            }
+        }
 
         return $this;
     }

@@ -25,31 +25,31 @@ class RegistrationController extends AbstractController
 
 
     /**
-     * @Route("/registration", name="registration")
+     * @Route("/register", name="Registration_register")
      */
-public function register(Request $request, UserPasswordEncoderInterface $encoder){
-    $user = new User();
-    $em = $this->getDoctrine()->getManager();
-    $form = $this->createForm(UserType::class, $user);
-    $form->handleRequest($request);
+    public function register(Request $request, UserPasswordEncoderInterface $encoder){
+        $user = new User();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
 
 //    var_dump($user->getRoles());
-    if($form->isSubmitted() && $form->isValid()){
-        $password = $encoder->encodePassword($user, $user->getPassword()) ;
-        $user->setPassword($password);
+        if($form->isSubmitted() && $form->isValid()){
+            $password = $encoder->encodePassword($user, $user->getPassword()) ;
+            $user->setPassword($password);
 
-        $em->persist($user);
-        $em->flush();
+            $em->persist($user);
+            $em->flush();
 
-        $this->addFlash('success','Utilisateur enregistré');
-        return $this->redirectToRoute('login');
+            $this->addFlash('success','Utilisateur enregistré');
+            return $this->redirectToRoute('login');
+        }
+
+
+        return $this->render('registration/register.html.twig', [
+            "form" => $form->createView()
+        ]);
     }
-
-
-    return $this->render('registration/register.html.twig', [
-        "form" => $form->createView()
-    ]);
-}
 
 
 }

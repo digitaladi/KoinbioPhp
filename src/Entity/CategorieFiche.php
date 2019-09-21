@@ -24,6 +24,14 @@ class CategorieFiche
     private $name;
 
 
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="App\Entity\Fiche", mappedBy="categorieFiche")
+     */
+    private $fiches;
+
+
+
 
     public function __construct()
     {

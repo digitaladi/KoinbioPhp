@@ -12,8 +12,8 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
-        var_dump($this->getUser()->getRoles()[0]);
+//        $this->denyAccessUnlessGranted('ROLE_USER');
+//        var_dump($this->getUser()->getRoles()[0]);
         return $this->render('index/index.html.twig');
     }
 
