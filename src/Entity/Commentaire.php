@@ -120,12 +120,12 @@ class Commentaire
         return $this;
     }
 
-    public function getIdArticle(): ?Article
+    public function getIdArticle()
     {
         return $this->id_article;
     }
 
-    public function setIdArticle(?Article $id_article): self
+    public function setIdArticle(Article $id_article)
     {
         $this->id_article = $id_article;
 

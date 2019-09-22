@@ -1,0 +1,17 @@
+{% extends'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+<h1>L'utilisateur n° {{ user.id }}</h1>
+    <ul>
+        <li>{{ user.email }}</li>
+        <li>{{ user.username }}</li>
+
+        <li>{{ user.commune }}</li>
+        {#        <li>{{ user.fiche.name }}</li>#}
+    </ul>
+
+{% endblock %}
