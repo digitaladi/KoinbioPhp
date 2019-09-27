@@ -31,6 +31,27 @@ class UserType extends AbstractType
 //            ->add('street_number',NumberType::class)
 //            ->add('street_type', TextType::class)
 //            ->add('street_name',TextType::class)
+                ->add('roles', ChoiceType::class, array(
+                'attr'  =>  array('class' => 'form-control',
+                    'style' => 'margin:5px 0;'),
+                'choices' =>
+                    array
+                    (
+                        'ROLE_ADMIN' => array
+                        (
+                            'ROLE_ADMIN' => 'ROLE_ADMIN',
+                        ),
+                        'ROLE_USER' => array
+                        (
+                            'ROLE_USER' => 'ROLE_USER'
+                        ),
+
+
+                    )
+            ,
+                'multiple' => true,
+                'required' => true,
+            ))
             ->add('postal_code',NumberType::class)
             ->add('commune', TextType::class)
             ->add('submit', SubmitType::class)

@@ -9,6 +9,7 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -100,7 +101,9 @@ class SecurityController extends AbstractController
     /**
      * @Route("admin/users", name="admin_index_user")
      */
-    public function index(){
+    public function index(TokenStorageInterface $storage){
+//        var_dump($storage->getToken()->getUser());
+
 
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository(User::class)->findAll();

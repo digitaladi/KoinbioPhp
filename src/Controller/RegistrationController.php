@@ -42,7 +42,7 @@ class RegistrationController extends AbstractController
             $em->flush();
 
             $this->addFlash('success','Utilisateur enregistré');
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('security_login');
         }
 
 

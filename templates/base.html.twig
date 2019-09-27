@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}koinBio!{% endblock %}</title>
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
 <body>
@@ -64,19 +64,19 @@
 
 {% endfor %}
 
+
+
+
+
 {% block body %}
 
-
-
-
-
-
-
-
-
 {% endblock %}
+
+
+
+
 {% block javascripts %}
-    <script src="{{ asset('js/app.js') }}" type="application/javascript"></script>
+    {{ encore_entry_script_tags('app') }}
 
 
 
