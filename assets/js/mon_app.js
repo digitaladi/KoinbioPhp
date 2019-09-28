@@ -1,3 +1,4 @@
+
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -8,13 +9,13 @@
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.scss');
 
-
+//require('mon_app.js');
 require('../css/style.css');
 
-
-
-
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
+// const $ = require('jquery');
+
+
 const $ = require('jquery');
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
@@ -27,5 +28,22 @@ require('bootstrap');
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
+console.log('js de mon_app.js');
 
-console.log('js de app.js');
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function () {
+    $adresse = window.location.protocol;
+    window.console.log($adresse.toLocaleUpperCase())
+});
+
+

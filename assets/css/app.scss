@@ -4,7 +4,10 @@
 $primary: darken(#428bca, 20%);
 
 // the ~ allows you to reference things in node_modules
+//c'est ici qu'on inclut le code css de bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+
 
 
 
