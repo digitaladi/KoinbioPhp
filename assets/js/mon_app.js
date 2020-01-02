@@ -10,7 +10,7 @@
 require('../css/app.scss');
 
 //require('mon_app.js');
-require('../css/style.css');
+// require('../css/style.css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');

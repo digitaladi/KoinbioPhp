@@ -13,6 +13,14 @@ require('../css/style.css');
 
 
 
+// returns the final, public path to this file
+// path is relative to this file - e.g. assets/images/logo.png
+// const logoPath = require('../images/logo_koinbio.png');
+
+// var html = `<img src="${logoPath}">`;
+
+
+
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');

@@ -61,7 +61,7 @@ class SecurityController extends AbstractController
             $this->addFlash("success","Utilisateur enregistré");
             return $this->redirectToRoute('login');
         }
-
+        
 
         return $this->render('security/admin/register.html.twig', [
             "form" => $form->createView()
@@ -100,6 +100,8 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("admin/users", name="admin_index_user")
+     *
+     *
      */
     public function index(TokenStorageInterface $storage){
 //        var_dump($storage->getToken()->getUser());
@@ -134,7 +136,6 @@ class SecurityController extends AbstractController
         $em->flush();
         $this->addFlash('notice', "l'utilisateur est supprimé");
         return $this->redirectToRoute('admin_index_user');
-
     }
 
 }

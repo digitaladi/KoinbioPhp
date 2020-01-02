@@ -4,7 +4,7 @@
 {% block body %}
 
     <h1>Tous les users</h1>
-
+    <hr>
     {% for user in users%}
 {#{{ dump(user) }}#}
     <ul>
@@ -12,9 +12,9 @@
         <li>{{ user.firstname }}</li>
         <li>{{ user.lastname }}</li>
         <li>{{ user.commune }}</li>
-        <li><button><a href="{{ path('admin_show_user',{'id': user.id}) }}">Voir</a></button></li>
-        <li><button><a href="{{ path('admin_edit_user', {'id':user.id}) }}">Editer</a></button></li>
-        <li><button><a href="{{ path('admin_delete_user', {'id':user.id}) }}">Supprimer</a></button></li>
+        <li><a href="{{ path('admin_show_user',{'id': user.id}) }}">Voir</a></li>
+        <li><a href="{{ path('admin_edit_user', {'id':user.id}) }}">Editer</a></li>
+        <li><a href="{{ path('admin_delete_user', {'id':user.id}) }}">Supprimer</a></li>
 
     </ul>
         <hr>

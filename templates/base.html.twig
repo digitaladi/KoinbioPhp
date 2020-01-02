@@ -12,33 +12,72 @@
 <header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="{{ path("index") }}"><img src="{{ asset('build/images/logo_koinbio.png') }}" alt="" width="50%" height="50%"><span class="sr-only">(current)</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KoinBio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Articles</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        Fiches
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Plantes fruitières</a>
+                        <a class="dropdown-item" href="#">Plantes légumières</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Plantes médicinales</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="#">Galerie</a>
                 </li>
+                {#                <li class="nav-item">#}
+                {#                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>#}
+                {#                </li>#}
+
+                {% if is_granted('ROLE_USER') %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mes rubriques
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Mes fiches</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Mon score</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Mes stats</a>
+
+
+                    </div>
+                </li>
+                {% endif %}
+
+                {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Administrateur
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ path('admin_index_user') }}">Gestion des utilisateurs</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('admin_fiche_index') }}">Gestions des fiches</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Gestion des articles</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"> gestion des commentaires</a>
+
+                    </div>
+                </li>
+                {% endif %}
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -46,36 +85,27 @@
             </form>
         </div>
     </nav>
-    <nav>
-        <div class="logo_site"></div>
-        <ul>
-            <li><a href="{{ path("index") }}">Acceuil</a></li>
 
-            <li><a href="">Qui sommes-nous</a></li>
-            <li><a href="">Compositions</a></li>
-            <li><a href="">Articles</a></li>
-            <li><a href="">Galerie</a></li>
-        </ul>
-
-    </nav>
     {% if app.user %}
-    <div class="little_nav">
-        <div class="item-little-nav">bouttons réseaus sociaux</div>
+        <div class="little_nav row">
+            <div class="item-little-nav col-sm-3">bouttons réseaus sociaux</div>
 
 
-        <div class="item-little-nav" style="color: red; font-weight: bold;">{{app.user.username}} </div>
-        <div class="item-little-nav"><a href="{{ path("logout") }}">Se deconnecter</a></div>
-    </div>
+            <div class="item-little-nav col-sm-3" style="color: red; font-weight: bold;">{{app.user.username}} </div>
+            <div class="item-little-nav col-sm-3"><a href="{{ path("logout") }}">Se deconnecter</a></div>
+            <div class="item-little-nav col-sm-3"><a href="#">Mon compte</a></div>
 
-        {% else %}
+        </div>
+        <hr>
+    {% else %}
 
-            <div class="little_nav">
-                <div class="item-little-nav">bouttons réseaus sociaux</div>
-                <div class="item-little-nav"><a href="{{ path("security_login") }}">Se connecter</a> </div>
-                <div class="item-little-nav"><a href="{{ path("Registration_register") }}">S'inscrire</a> </div>
+        <div class="little_nav row">
+            <div class="item-little-nav col-sm-3">bouttons réseaus sociaux</div>
+            <div class="item-little-nav col-sm-3"><a href="{{ path("security_login") }}">Se connecter</a> </div>
+            <div class="item-little-nav col-sm-3"><a href="{{ path("Registration_register") }}">S'inscrire</a> </div>
 
-            </div>
-
+        </div>
+        <hr>
     {% endif %}
 </header>
 
@@ -104,19 +134,22 @@
 
 
 
-{% block body %}
-
-{% endblock %}
+<div class="container-fluid">
 
 
+        {% block body %}
+
+
+
+        {% endblock %}
+
+
+</div>
 
 
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
     {{ encore_entry_script_tags('mon_app') }}
-
-
-
 {% endblock %}
 </body>
 </html>
