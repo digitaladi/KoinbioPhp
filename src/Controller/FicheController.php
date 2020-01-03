@@ -15,13 +15,17 @@ class FicheController extends AbstractController
      */
     public function index()
     {
-        return $this->render('admin/fiche/index.html.twig');
+
+        $fiches = $this->getDoctrine()->getRepository(Fiche::class)->findAll();
+//        var_dump($fiches);
+//        die("ok");
+        return $this->render('admin/fiche/index.html.twig', array("fiches" => $fiches));
     }
 
     /**
      * @Route("admin/fiche/add", name="admin_fiche_add")
      */
-    public function addFiche(Request $request){
+    public function addFicheAction(Request $request){
     $em = $this->getDoctrine()->getManager();
     $fiche = new Fiche();
    $form =  $this->createForm(FicheType::class, $fiche);
@@ -39,6 +43,42 @@ return $this->render("admin/fiche/add.html.twig", array("form_fiche" => $form->c
 
 
     }
+
+
+    /**
+     * @Route("admin/fiche/edit/{id}", name="admin_fiche_edit")
+     */
+    public function editficheAction(Fiche $fiche, Request $request){
+       $em = $this->getDoctrine()->getManager();
+      $form_edit =   $this->createForm(FicheType::class, $fiche);
+      $form_edit->handleRequest($request);
+if($fiche){
+    if($form_edit->isSubmitted() && $form_edit->isValid()){
+        $em->persist($fiche);
+        $em->flush();
+        return $this->redirectToRoute("admin_fiche_index");
+    }
+}else{
+return $this->createNotFoundException("L'id n°". $fiche->getId()."n'existe pas");
+}
+return $this->render("admin/fiche/edit.html.twig", array("edit_form" => $form_edit->createView()));
+    }
+
+    /**
+     * @Route("admin/fiche/show{id}", name="admin_fiche_show")
+     */
+    public function showFicheAction(Fiche $fiche){
+
+        $fiche = $this->getDoctrine()->getRepository(Fiche::class)->find($fiche);
+        if(!$fiche){
+            return $this->createNotFoundException("L'id n°". $fiche->getId()."n'existe pas");
+        }
+
+
+        return $this->render('admin/fiche/show.html.twig', array("fiche"=> $fiche));
+
+    }
+
 
 
 

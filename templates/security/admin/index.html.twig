@@ -4,21 +4,36 @@
 {% block body %}
 
     <h1>Tous les users</h1>
-    <hr>
-    {% for user in users%}
-{#{{ dump(user) }}#}
-    <ul>
-        <li>{{ user.email }}</li>
-        <li>{{ user.firstname }}</li>
-        <li>{{ user.lastname }}</li>
-        <li>{{ user.commune }}</li>
-        <li><a href="{{ path('admin_show_user',{'id': user.id}) }}">Voir</a></li>
-        <li><a href="{{ path('admin_edit_user', {'id':user.id}) }}">Editer</a></li>
-        <li><a href="{{ path('admin_delete_user', {'id':user.id}) }}">Supprimer</a></li>
 
-    </ul>
-        <hr>
-    {% endfor %}
+    <table class="table">
 
+        <tr>
+            <th>Email</th>
+            <th>Prenom</th>
+            <th>Nom </th>
+            <th>Commune</th>
+            <th>Voir</th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+
+        {% for user in users %}
+            <tr>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td> {{ user.commune }}</td>
+                <td><a href="{{ path('admin_show_user',{'id': user.id}) }}">Voir</a></td>
+                <td><a href="{{ path('admin_edit_user', {'id':user.id}) }}">Editer</a></td>
+                <td><a href="{{ path('admin_delete_user', {'id':user.id}) }}">Supprimer</a></td>
+            </tr>
+
+
+
+        {% endfor %}
+
+    </table>
 
 {% endblock %}
+
+

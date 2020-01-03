@@ -3,7 +3,30 @@
 
 {% block body %}
 <h1>Affichage des fiches</h1>
-   <p> <a href="{{ path('admin_fiche_add') }}">Ajouter un fiche</a></p>
- <p>   <a href="#">Supprimer un fiche</a></p>
- <p>   <a href="#">Editer un fiche</a></p>
+    <p> <a href="{{ path('admin_fiche_add') }}">Ajouter un fiche</a></p>
+    <table class="table">
+
+        <tr>
+            <th>id</th>
+            <th>Fiche</th>
+            <th>Voir </th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+
+    {% for fiche in fiches %}
+        <tr>
+            <td>{{ fiche.id }}</td>
+            <td>{{ fiche.plantName }}</td>
+            <td><p><a href="{{ path('admin_fiche_show', {"id":fiche.id}) }}">Voir</a></p></td>
+            <td> <p>   <a href="{{ path('admin_fiche_edit',{ 'id': fiche.id }) }}">Editer un fiche</a></p></td>
+            <td><p><a href="#">Supprimer</a></p></td>
+        </tr>
+
+
+
+    {% endfor %}
+
+    </table>
+
 {% endblock %}

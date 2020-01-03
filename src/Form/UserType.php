@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Fiche;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -55,6 +57,9 @@ class UserType extends AbstractType
             ->add('postal_code',NumberType::class)
             ->add('commune', TextType::class)
             ->add('submit', SubmitType::class)
+            ->add('fiche', EntityType::class, array('class' => Fiche::class,'expanded'  => true,
+                'multiple'  => true,'choice_label' => 'plant_name'
+                ))
 //            ->add('roles', ChoiceType::class, array('choices'=> $this->roles,
 //                'expanded'=>true,
 //                'mapped'=>true,
