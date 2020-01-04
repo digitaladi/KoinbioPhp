@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{categorieFiche.name }} {% endblock %}
+
+{% block body %}
+    <ul class="list-group">
+        <li class="list-group-item">{{categorieFiche.id }}</li>
+        <li class="list-group-item">{{ categorieFiche.name }}</li>
+
+    </ul>
+{% endblock %}
+

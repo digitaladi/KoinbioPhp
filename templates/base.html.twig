@@ -74,6 +74,8 @@
                         <a class="dropdown-item" href="#">Gestion des articles</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"> gestion des commentaires</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('admin_categorie_fiche_index') }}"> gestion des catégories de Fiches</a>
 
                     </div>
                 </li>
@@ -112,21 +114,23 @@
 {# read and display just one flash message type #}
 {% for message in app.flashes('success') %}
     {#        {{ dump(message) }}#}
-    <div class="alert">   {{ message }} </div>
+    <div class="alert alert-success" role="alert">  {{ message }} </div>
 
 {% endfor %}
 
 
 {% for message in app.flashes('notice') %}
     {#        {{ dump(message) }}#}
-    <div class="alert">   {{ message }} </div>
+    <div class="alert alert-info" role="alert">  {{ message }} </div>
 
 {% endfor %}
 
 
-{% for message in app.flashes('success') %}
+
+
+{% for message in app.flashes('error') %}
     {#        {{ dump(message) }}#}
-    <div class="alert">   {{ message }} </div>
+    <div class="alert alert-danger" role="alert">   {{ message }} </div>
 
 {% endfor %}
 
@@ -150,6 +154,7 @@
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
     {{ encore_entry_script_tags('mon_app') }}
+
 {% endblock %}
 </body>
 </html>

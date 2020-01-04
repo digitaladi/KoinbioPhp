@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\CategorieFiche;
 use App\Entity\Fiche;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -34,7 +36,8 @@ class FicheType extends AbstractType
             ->add('conseil')
             ->add('typePlante')
             ->add('receptablePlante')
-            ->add('categorieFiche')
+            ->add('categorieFiche', EntityType::class, array("class"=> CategorieFiche::class,
+                'choice_label' => 'name'))
 //            ->add('users', EntityType::class, array('class' => User::class, 'choice_label' => 'username', 'expanded'  => true,
 //                'multiple'  => true,))
             ->add('Envoyer', SubmitType::class)

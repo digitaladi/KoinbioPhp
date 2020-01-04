@@ -25,7 +25,7 @@
                 <td> {{ user.commune }}</td>
                 <td><a href="{{ path('admin_show_user',{'id': user.id}) }}">Voir</a></td>
                 <td><a href="{{ path('admin_edit_user', {'id':user.id}) }}">Editer</a></td>
-                <td><a href="{{ path('admin_delete_user', {'id':user.id}) }}">Supprimer</a></td>
+                <td><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_delete_user', {'id':user.id}) }}">Supprimer</a></td>
             </tr>
 
 
