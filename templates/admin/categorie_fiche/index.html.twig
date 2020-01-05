@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage des des catégories de fiches{% endblock %}
+
+{% block body %}
+    <h1>Affichage des des catégories de fiches</h1>
+    <p> <a href="{{ path('admin_categorie_fiche_add') }}">Ajouter une catégorie</a></p>
+
+
+    <table class="table">
+
+        <tr>
+            <th>id</th>
+            <th>Fiche</th>
+            <th>Voir </th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+
+        {% for categorie in categorie_fiches %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.name }}</td>
+                <td><p><a href="{{ path('admin_categorie_fiche_show',{"id":categorie.id}) }}">Voir</a></p></td>
+                <td> <p>   <a href="{{ path('admin_fiche_categorie_edit',{"id":categorie.id}) }}">Editer </a></p></td>
+                <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_fiche_categorie_delete', { "id": categorie.id }) }}">Supprimer</a></p></td>
+            </tr>
+
+
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

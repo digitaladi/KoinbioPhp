@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La liste des types de plantes{% endblock %}
+
+{% block body %}
+<p><a href="{{ path('admin_type_plantes_add') }}">Ajouter une type de plante</a></p>
+
+
+    <table class="table">
+
+        <tr>
+            <th>id</th>
+            <th>Nom</th>
+            <th>Descriptif</th>
+            <th>Voir </th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+
+        {% for type in typePlantes %}
+            <tr>
+                <td>{{ type.id }}</td>
+                <td>{{ type.name }}</td>
+                <td>{{ type.Descriptif }}</td>
+                <td><p><a href="{{ path('admin_type_plantes_show', {"id":type.id}) }}">Voir</a></p></td>
+                <td> <p>   <a href="{{ path('admin_type_plante_edit', {"id":type.id}) }}">Editer </a></p></td>
+                <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_type_plantes_delete', {"id":type.id}) }}">Supprimer</a></p></td>
+            </tr>
+
+
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}
