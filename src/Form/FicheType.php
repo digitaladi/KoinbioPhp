@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\CategorieFiche;
 use App\Entity\Fiche;
+use App\Entity\TypePlantes;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -34,7 +35,9 @@ class FicheType extends AbstractType
             ->add('is_medicinale')
             ->add('create_at')
             ->add('conseil')
-            ->add('typePlante')
+            ->add('typePlante', EntityType::class,
+                array("class"=> TypePlantes::class,
+                     'choice_label' => 'name'))
             ->add('receptablePlante')
             ->add('categorieFiche', EntityType::class, array("class"=> CategorieFiche::class,
                 'choice_label' => 'name'))
