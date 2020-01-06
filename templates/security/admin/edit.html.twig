@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-
-
+{% block title %}
+    Modifier l'utilisateur
+{% endblock %}
 {% block body %}
-<h1>Administration User</h1>
+    <h1 class="title_koin">Modifier l'utilisateur</h1>
+
 
     {{ form(edit_form_user) }}
 

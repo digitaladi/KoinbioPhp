@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+{{ receptable.name }}
+{% endblock %}
+
+
+
+{% block body %}
+    <h1 class="title_koin">{{ receptable.name }}</h1>
+
+    <ul class="list-group">
+        <li class="list-group-item">{{receptable.id }}</li>
+        <li class="list-group-item">{{ receptable.name }}</li>
+        <li class="list-group-item">{{ receptable.color }}</li>
+        <li class="list-group-item">{{receptable.matiere }}</li>
+        <li class="list-group-item">{{ receptable.forme }}</li>
+
+    </ul>
+{% endblock %}
+
+

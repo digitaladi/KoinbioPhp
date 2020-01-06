@@ -1,11 +1,11 @@
 {% extends'base.html.twig' %}
 
-
+{% block title %} L'utilisateur {{ user.username }} {% endblock %}
 
 
 {% block body %}
+    <h1 class="title_koin"> {{ user.username }}</h1>
 
-<h1>L'utilisateur n° {{ user.id }}</h1>
     <ul>
         <li>{{ user.email }}</li>
         <li>{{ user.username }}</li>
