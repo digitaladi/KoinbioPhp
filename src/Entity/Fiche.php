@@ -132,11 +132,17 @@ class Fiche
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="fiche_id")
+     */
+    private $commentaires;
+
 
 
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
     }
 
     public function getId()
@@ -422,6 +428,37 @@ class Fiche
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
             $user->removeFiche($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setFicheId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getFicheId() === $this) {
+                $commentaire->setFicheId(null);
+            }
         }
 
         return $this;

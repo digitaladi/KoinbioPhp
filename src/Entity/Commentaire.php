@@ -43,6 +43,11 @@ class Commentaire
      */
     private $id_article;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Fiche", inversedBy="commentaires")
+     */
+    private $fiche_id;
+
     public function __construct()
     {
         $this->responseCommentaires = new ArrayCollection();
@@ -128,6 +133,18 @@ class Commentaire
     public function setIdArticle(Article $id_article)
     {
         $this->id_article = $id_article;
+
+        return $this;
+    }
+
+    public function getFicheId(): ?Fiche
+    {
+        return $this->fiche_id;
+    }
+
+    public function setFicheId(?Fiche $fiche_id): self
+    {
+        $this->fiche_id = $fiche_id;
 
         return $this;
     }
