@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La liste des receptables de plante{% endblock %}
+
+{% block body %}
+
+
+
+    <h1 class="title_koin">La liste des receptables de plante</h1>
+
+    <button type="button" class="btn btn-success btn-xs "><a href="{{ path('admin_receptable_add') }}">Ajouter un receptable </a></button>
+    <br><br>
+    <table class="table">
+
+        <tr>
+            <th>id</th>
+            <th>nom</th>
+            <th>couleur </th>
+            <th>Matière</th>
+            <th>forme</th>
+            <th>Voir</th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+
+        {% for receptable in receptables %}
+            <tr>
+                <td>{{ receptable.id }}</td>
+                <td>{{ receptable.name }}</td>
+                <td>{{ receptable.color }}</td>
+                <td>{{ receptable.matiere}}</td>
+                <td>{{ receptable.forme }}</td>
+                <td><p><a href="{{ path('admin_receptable_show', {'id':receptable.id}) }}">Voir</a></p></td>
+                <td> <p>   <a href="{{ path('admin_receptable_edit', {'id':receptable.id}) }}">Editer</a></p></td>
+                <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_receptable_delete', {'id':receptable.id}) }}">Supprimer</a></p></td>
+            </tr>
+
+
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}
