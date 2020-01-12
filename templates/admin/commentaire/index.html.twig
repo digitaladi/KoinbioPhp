@@ -7,4 +7,34 @@
     <h1 class="title_koin">La liste des commentaires</h1>
 
     <button type="button" class="btn btn-success btn-xs "><a href="{{ path('admin_commentaire_add') }}">Ajouter un commentaire</a></button>
+
+    <br><br>
+    <table class="table">
+
+        <tr>
+            <th>id</th>
+            <th>Commentaires</th>
+            <th>Date de création</th>
+            <th>Voir </th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+
+        {% for commentaire in allCommentaires %}
+            <tr>
+                <td>{{ commentaire.id }}</td>
+                <td>{{ commentaire.comment }}</td>
+                <td>{{ commentaire.createdAt|date("d/m/Y") }}</td>
+                <td> <p>   <a href="{{ path('admin_commentaire_show',{"id":commentaire.id}) }}">Voir </a></p></td>
+                <td> <p>   <a href="{{ path('admin_commentaire_edit',{"id":commentaire.id}) }}">Editer </a></p></td>
+                <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_commentaire_delete', { "id": commentaire.id }) }}">Supprimer</a></p></td>
+            </tr>
+
+
+
+        {% endfor %}
+
+    </table>
+
+
 {% endblock %}

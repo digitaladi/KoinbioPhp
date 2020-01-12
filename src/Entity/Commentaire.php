@@ -11,6 +11,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commentaire
 {
+
+
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -26,7 +30,7 @@ class Commentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commentaires")
      */
-    private $user_id;
+    private $user;
 
     /**
      * @ORM\Column(type="datetime", nullable=false)
@@ -41,12 +45,12 @@ class Commentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="commentaires")
      */
-    private $id_article;
+    private $article;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Fiche", inversedBy="commentaires")
      */
-    private $fiche_id;
+    private $fiche;
 
     public function __construct()
     {
@@ -70,14 +74,14 @@ class Commentaire
         return $this;
     }
 
-    public function getUserId()
+    public function getUser()
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId( User $user_id)
+    public function setUser( User $user)
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
 
         return $this;
     }
@@ -127,24 +131,49 @@ class Commentaire
 
     public function getIdArticle()
     {
-        return $this->id_article;
+        return $this->article;
     }
 
-    public function setIdArticle(Article $id_article)
+    public function setIdArticle(Article $article)
     {
-        $this->id_article = $id_article;
+        $this->article = $article;
 
         return $this;
     }
 
     public function getFicheId(): ?Fiche
     {
-        return $this->fiche_id;
+        return $this->fiche;
     }
 
-    public function setFicheId(?Fiche $fiche_id): self
+    public function setFicheId(?Fiche $fiche): self
     {
-        $this->fiche_id = $fiche_id;
+        $this->fiche = $fiche;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+
+    public function getFiche(): ?Fiche
+    {
+        return $this->fiche;
+    }
+
+    public function setFiche(?Fiche $fiche): self
+    {
+        $this->fiche = $fiche;
 
         return $this;
     }

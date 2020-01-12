@@ -6,6 +6,7 @@ use App\Entity\Fiche;
 use App\Form\FicheType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FicheController extends AbstractController
@@ -61,7 +62,7 @@ class FicheController extends AbstractController
                 return $this->redirectToRoute("admin_fiche_index");
             }
         }else{
-            throw $this->createNotFoundException("L'id n°". $fiche->getId()."n'existe pas");
+            throw new NotFoundHttpException("L'id n°". $fiche->getId()."n'existe pas");
         }
         return $this->render("admin/fiche/edit.html.twig", array("edit_form" => $form_edit->createView()));
     }
@@ -73,7 +74,8 @@ class FicheController extends AbstractController
 
         $fiche = $this->getDoctrine()->getRepository(Fiche::class)->find($fiche);
         if(!$fiche){
-            throw $this->createNotFoundException("L'id n°". $fiche->getId()."n'existe pas");
+
+            throw new NotFoundHttpException("L'id n°". $fiche->getId()."n'existe pas");
         }
 
 
@@ -96,7 +98,7 @@ class FicheController extends AbstractController
             $this->addFlash('error', 'Fiche supprimé!');
             return $this->redirectToRoute("admin_fiche_index");
         }else{
-            throw $this->createNotFoundException("L'id n°". $fiche->getId()."n'existe pas");
+            throw new NotFoundHttpException("L'id n°". $fiche->getId()."n'existe pas");
         }
 
     }

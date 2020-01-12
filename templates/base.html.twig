@@ -122,14 +122,14 @@
 {# read and display just one flash message type #}
 {% for message in app.flashes('success') %}
     {#        {{ dump(message) }}#}
-    <div class="alert alert-success" role="alert">  {{ message }} </div>
+    <div class="alert alert-success container text-center" role="alert">  {{ message }} </div>
 
 {% endfor %}
 
 
 {% for message in app.flashes('notice') %}
     {#        {{ dump(message) }}#}
-    <div class="alert alert-info" role="alert">  {{ message }} </div>
+    <div class="alert alert-info container text-center" role="alert">  {{ message }} </div>
 
 {% endfor %}
 
@@ -138,7 +138,7 @@
 
 {% for message in app.flashes('error') %}
     {#        {{ dump(message) }}#}
-    <div class="alert alert-danger" role="alert">   {{ message }} </div>
+    <div class="alert alert-danger container text-center" role="alert">   {{ message }} </div>
 
 {% endfor %}
 
