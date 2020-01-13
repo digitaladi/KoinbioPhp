@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ article.titre }}
+{% endblock %}
+
+
+{% block body %}
+    <h1 class="title_koin">{{ article.titre }}</h1>
+
+    <ul class="list-group">
+        <li class="list-group-item">{{article.titre }}</li>
+        <li class="list-group-item">{{ article.auteur }}</li>
+        <li class="list-group-item">{{ article.createdAt|date("d/m/Y") }}</li>
+        <li class="list-group-item">{{ article.corp }}</li>
+
+    </ul>
+{% endblock %}
+
+
+

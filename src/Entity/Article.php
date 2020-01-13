@@ -49,14 +49,19 @@ class Article
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="id_article")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="article")
      */
     private $commentaires;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\CategorieArticle")
      */
-    private $id_categorieArticle;
+    private $categorieArticle;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $source;
 
     public function __construct()
     {
@@ -171,14 +176,26 @@ class Article
         return $this;
     }
 
-    public function getIdCategorieArticle()
+    public function getCategorieArticle()
     {
-        return $this->id_categorieArticle;
+        return $this->categorieArticle;
     }
 
-    public function setIdCategorieArticle(CategorieArticle $id_categorieArticle)
+    public function setCategorieArticle(CategorieArticle $categorieArticle)
     {
-        $this->id_categorieArticle = $id_categorieArticle;
+        $this->categorieArticle = $categorieArticle;
+
+        return $this;
+    }
+
+    public function getSource(): ?string
+    {
+        return $this->source;
+    }
+
+    public function setSource(?string $source): self
+    {
+        $this->source = $source;
 
         return $this;
     }
