@@ -1,3 +1,24 @@
+/*CSS GLOBAL*/
+.color-kaki-koin{
+    color: #5f6c0a;
+}
+
+.degrade-background-koin{
+    background: #812500; /* Old browsers */
+    background: -moz-linear-gradient(left,  #812500 0%, #5f6c0a 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #812500 0%,#5f6c0a 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #812500 0%,#5f6c0a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#812500', endColorstr='#5f6c0a',GradientType=1 ); /* IE6-9 */
+}
+
+.color-marron-koin{
+    color: #812500;
+}
+
+.background-kaki-koin{
+    background-color: #5f6c0a;
+}
+
 body {
     font-family: sans-serif;
     color: black;
@@ -46,17 +67,23 @@ body {
 .little_nav{
     width: 100%;
     margin-top: 10px;
-    margin-bottom: 120px;
     border-bottom: 1px dashed #5f6c0a ;
     height: 32px;
+    margin-left: 0;
 }
 
 
-.little_nav div{
-float: right;
+.little_nav2 div{
+float: left;
 display: inline-block;
 height: auto;
-width: 20%;
+text-align: end;
+    border-left: 1px dashed black;
+}
+
+
+.firt-item-little_nav2-koin{
+    border-right: 1px dashed black;
 }
 
 .title_koin{
@@ -65,6 +92,64 @@ width: 20%;
     border-left: 7px solid #812500;
     padding-left: 15px;
 
+}
+
+.little_nav2{
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+.accroche-koin{
+    font-size: 20px;
+    padding: 1%;
+    color: white;
+    margin-top: 2%;
+}
+
+
+.accroche-title{
+    padding-bottom: 1%;
+    font-size: 35px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.btn-koin-special{
+    color: #812500;
+    width: 20%;
+    border-left: 1px dashed #812500;
+    padding: 5px;
+    text-align: center;
+    /*border-left: none;*/
+    background-color: white;
+
+    border-top: 1px dashed white;
+}
+
+
+.btn-koin-special:hover{
+background-color: transparent;
+    color: white;
+    border-left: 1px dashed white;
+    border-top: 1px dashed white;
+    border-bottom: 1px dashed white;
+
+}
+
+.btn-koin-special:first-child:hover {
+    border-left: 1px dashed white;
+}
+
+.btn-koin-special:last-child:hover{
+    border-right: 1px dashed white;
+}
+
+
+.wrap-user-command{
+width: 46%;
+ margin-right: 0;
+ margin-left: 0;
 }
 
 

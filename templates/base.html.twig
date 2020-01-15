@@ -45,48 +45,48 @@
                 {#                </li>#}
 
                 {% if is_granted('ROLE_USER') %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Mes rubriques
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Mes fiches</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Mon score</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Mes stats</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mes rubriques
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Mes fiches</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Mon score</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Mes stats</a>
 
 
-                    </div>
-                </li>
+                        </div>
+                    </li>
                 {% endif %}
 
                 {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Administrateur
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ path('admin_index_user') }}">Gestion des utilisateurs</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('admin_fiche_index') }}">Gestions des fiches</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Gestion des articles</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('admin_article_index') }}"> gestion des articles</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('admin_categorie_fiche_index') }}"> gestion des catégories de Fiches</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administrateur
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ path('admin_index_user') }}">Gestion des utilisateurs</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('admin_fiche_index') }}">Gestions des fiches</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Gestion des articles</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('admin_article_index') }}"> gestion des articles</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('admin_categorie_fiche_index') }}"> gestion des catégories de Fiches</a>
 
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('type_plantes_index') }}"> gestion des types de plantes</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('receptable_plante_index') }}"> gestion des receptables  de plantes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('type_plantes_index') }}"> gestion des types de plantes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('receptable_plante_index') }}"> gestion des receptables  de plantes</a>
 
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('admin_commentaire_index') }}"> gestion des commentaires</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('admin_commentaire_index') }}"> gestion des commentaires</a>
 
-                    </div>
-                </li>
+                        </div>
+                    </li>
                 {% endif %}
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -95,28 +95,32 @@
             </form>
         </div>
     </nav>
-
-    {% if app.user %}
-        <div class="little_nav">
-            <div>bouttons réseaus sociaux</div>
+    <div class="little_nav row">
+        {% if app.user %}
 
 
-            <div style="color: red; font-weight: bold;">{{app.user.username}} </div>
-            <div ><a href="{{ path("logout") }}">Se deconnecter</a></div>
-            <div ><a href="#">Mon compte</a></div>
+            <div class="little_nav2">
 
-        </div>
 
-    {% else %}
+                <div class="col-md-3 color-marron-koin" style="font-weight: bold;">{{app.user.username}} </div>
+                <div class="col-md-2" ><a href="{{ path("logout") }}">Se deconnecter</a></div>
+                <div  class="col-md-2"><a href="#">Mon compte</a></div>
+                <div class="col-md-5 firt-item-little_nav2-koin" >facebook - twitter - google - instagram </div>
 
-        <div class="little_nav row">
-            <div >bouttons réseaus sociaux</div>
-            <div ><a href="{{ path("security_login") }}">Se connecter</a> </div>
-            <div><a href="{{ path("Registration_register") }}">S'inscrire</a> </div>
+            </div>
 
-        </div>
+        {% else %}
+            <div class="little_nav2">
 
-    {% endif %}
+
+                <div class="col-md-4" ><a href="{{ path("security_login") }}">Se connecter</a> </div>
+                <div class="col-md-4"><a href="{{ path("Registration_register") }}">S'inscrire</a> </div>
+                <div class="col-md-4 firt-item-little_nav2-koin">facebook - twitter - google - instagram</div>
+            </div>
+
+
+        {% endif %}
+    </div>
 </header>
 
 {# read and display just one flash message type #}
@@ -149,11 +153,11 @@
 <div class="container-koin">
 
 
-        {% block body %}
+    {% block body %}
 
 
 
-        {% endblock %}
+    {% endblock %}
 
 
 </div>
