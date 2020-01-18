@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
     <title>{% block title %}koinBio!{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -71,7 +72,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ path('admin_fiche_index') }}">Gestions des fiches</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Gestion des articles</a>
+                            {#                            <a class="dropdown-item" href="#">Gestion des articles</a>#}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ path('admin_article_index') }}"> gestion des articles</a>
                             <div class="dropdown-divider"></div>
@@ -105,7 +106,11 @@
                 <div class="col-md-3 color-marron-koin" style="font-weight: bold;">{{app.user.username}} </div>
                 <div class="col-md-2" ><a href="{{ path("logout") }}">Se deconnecter</a></div>
                 <div  class="col-md-2"><a href="#">Mon compte</a></div>
-                <div class="col-md-5 firt-item-little_nav2-koin" >facebook - twitter - google - instagram </div>
+                <div class="col-md-5 firt-item-little_nav2-koin" >
+                    <a href="#"> <i class="color-marron-koin fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                    <a href="#"> <i class="color-marron-koin fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+                    <a href="#"> <i class="color-marron-koin fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                </div>
 
             </div>
 
@@ -115,7 +120,11 @@
 
                 <div class="col-md-4" ><a href="{{ path("security_login") }}">Se connecter</a> </div>
                 <div class="col-md-4"><a href="{{ path("Registration_register") }}">S'inscrire</a> </div>
-                <div class="col-md-4 firt-item-little_nav2-koin">facebook - twitter - google - instagram</div>
+                <div class="col-md-4 firt-item-little_nav2-koin">
+                    <a href="#"><i class="color-marron-koin fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                    <a href="#"> <i class="color-marron-koin fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+                    <a href="#">  <i class="color-marron-koin fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                </div>
             </div>
 
 
@@ -162,9 +171,14 @@
 
 </div>
 
-
 <div id="foot_principale">
 
+
+</div>
+
+
+<div class="degrade-background-koin" id="foot_little">
+    &copy; KoinBio {{ 'now'|date('Y') }}
 
 </div>
 

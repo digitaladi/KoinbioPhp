@@ -10,6 +10,11 @@ require('../css/app.scss');
 
 
 require('../css/style.css');
+require('../fontawesome/css/font-awesome.min.css');
+require('../fonts/Ink Free.eot');
+require('../fonts/Ink Free.otf');
+require('../fonts/Ink Free.ttf');
+require('../fonts/Ink Free.woff');
 
 
 

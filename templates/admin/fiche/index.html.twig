@@ -21,14 +21,14 @@
             <td>{{ fiche.id }}</td>
             <td>{{ fiche.plantName }}</td>
             <td><p><a href="{{ path('admin_fiche_show', {"id":fiche.id}) }}">Voir</a></p></td>
-            <td> <p>   <a href="{{ path('admin_fiche_edit',{ 'id': fiche.id }) }}">Editer</a></p></td>
+            <td> <p>   <a href="{{ path('admin_fiche_edit',{ 'id'   : fiche.id }) }}">Editer</a></p></td>
             <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_fiche_delete',{ "id": fiche.id }) }}">Supprimer</a></p></td>
         </tr>
 
 
 
     {% endfor %}
-
+        <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
     </table>
 
 {% endblock %}

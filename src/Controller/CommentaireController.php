@@ -32,12 +32,18 @@ class CommentaireController extends AbstractController
 
 public function add(Request $request){
 
+    $user = $this->getUser();
+
     $commentaire = new Commentaire();
     $commentaire->setCreatedAt(new \DateTime());
     $em = $this->getDoctrine()->getManager();
+
     $form = $this->createForm(CommentaireType::class, $commentaire);
     $form->handleRequest($request); //ici on hidrate l'objet
+
+//    dd($commentaire);
     if($form->isSubmitted() && $form->isValid()){
+        $commentaire->setUser($user);
         $em->persist($commentaire);
         $em->flush();
         $this->addFlash("success", "Le commentaire a été ajouté");
@@ -85,13 +91,14 @@ public function show(Commentaire $commentaire){
      * @Route("/admin/commentaire/edit/{id}", name="admin_commentaire_edit")
      */
 public function edit(Request $request,  Commentaire $commentaire){
-
+    $user = $this->getUser();
     $em = $this->getDoctrine()->getManager();
     $commentaire =  $this->getDoctrine()->getRepository(Commentaire::class)->find($commentaire);
     $form_edit = $this->createForm(CommentaireType::class, $commentaire);
     $form_edit->handleRequest($request);
 
     if($form_edit->isSubmitted() && $form_edit->isValid()){
+        $commentaire->setUser($user);
         $em->persist($commentaire);
         $em->flush();
         $this->addFlash("notice", "Le commentaire a été modifié");
