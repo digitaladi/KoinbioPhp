@@ -56,15 +56,15 @@ class UserType extends AbstractType
             ))
             ->add('postal_code',NumberType::class)
             ->add('commune', TextType::class)
-            ->add('submit', SubmitType::class)
             ->add('fiche', EntityType::class, array('class' => Fiche::class,'expanded'  => true,
                 'multiple'  => true,'choice_label' => 'plant_name'
-                ))
-//            ->add('roles', ChoiceType::class, array('choices'=> $this->roles,
-//                'expanded'=>true,
-//                'mapped'=>true,
-//                'label' => 'form.roles',
-//                'translation_domain' => 'messages'))
+            ))
+
+
+
+            ->add('submit', SubmitType::class)
+
+
         ;
     }
 

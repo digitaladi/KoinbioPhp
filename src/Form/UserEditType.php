@@ -4,8 +4,10 @@
 namespace App\Form;
 
 
+use App\Entity\Fiche;
 use App\Entity\User;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,6 +26,9 @@ class UserEditType extends AbstractType
             ->add('postal_code')
             ->add('commune')
             ->add('username')
+            ->add('fiche', EntityType::class, array('class' => Fiche::class,'expanded'  => true,
+                'multiple'  => true,'choice_label' => 'plant_name'
+            ))
             ->add('Modifier', SubmitType::class);
     }
 

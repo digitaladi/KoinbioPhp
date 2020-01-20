@@ -1,11 +1,24 @@
 /*CSS GLOBAL*/
+@font-face {
+    font-family: "Puritas LT W04 Bold Italic";
+    src: url("../fonts/Puritas LT W04 Bold Italic.ttf") format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+}
+@font-face {font-family: "Puritas LT W04 Medium Italic";
+    src: url("../fonts/Puritas LT W04 Medium Italic.eot"); /* IE9*/
+    src: url("../fonts/Puritas LT W04 Medium Italic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/Puritas LT W04 Medium Italic.woff2") format("woff2"), /* chrome、firefox */
+    url("../fonts/Puritas LT W04 Medium Italic.woff") format("woff"), /* chrome、firefox */
+    url("../fonts/Puritas LT W04 Medium Italic.ttf") format("truetype"); /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+
+}
+
 
 @font-face{
     font-family: 'Ink Free';
-    src: url("../fonts/Ink Free.eot") format('truetype');
+    src: url("../fonts/Ink Free.eot") format('embedded');
     src: url("../fonts/Ink Free.otf") format('opentype');
     src: url("../fonts/Ink Free.ttf") format('truetype');
-    src: url("../fonts/Ink Free.woff") format('truetype');
+    src: url("../fonts/Ink Free.woff") format('woff');
 }
 
 
@@ -22,6 +35,13 @@
     background: -webkit-linear-gradient(left,  #812500 0%,#5f6c0a 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right,  #812500 0%,#5f6c0a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#812500', endColorstr='#5f6c0a',GradientType=1 ); /* IE6-9 */
+
+}
+
+.white-koin-puritas{
+    font-family: 'Puritas LT W04 Medium Italic', serif;
+    font-size: 1.5em;
+    color: white;
 }
 
 .color-marron-koin{
@@ -101,13 +121,13 @@ body {
 }
 
 .title_koin{
-
-    margin-bottom: 50px;
+    font-family: 'Puritas LT W04 Medium Italic', serif;
+    margin-bottom: 60px;
     color: #5f6c0a;
     border-left: 7px solid #812500;
     padding-left: 15px;
-
     margin-top: 50px;
+    font-size: 3em;
 
 }
 
@@ -126,13 +146,7 @@ body {
 }
 
 
-.accroche-title{
-    font-family: 'Ink Free', serif;
-    font-size: 55px;
-    text-align: center;
-    margin: 0 auto;
-    font-weight: bold;
-}
+
 
 .btn-koin-special{
     color: #812500;
@@ -173,12 +187,37 @@ body {
 }
 .accroche-koin p{
     text-align: center;
+    /*font-family: 'Puritas LT W04 Medium Italic', serif;*/
 }
+
+
+.accroche-title{
+    font-family: 'Puritas LT W04 Medium Italic', serif;
+    font-size: 55px;
+    text-align: center;
+    margin: 0 auto;
+}
+
 
 .firt-item-little_nav2-koin i:hover{
     opacity: 0.5;
 }
 
 
+/*.bg-header-koin ul{*/
+/*     margin: 0 auto;*/
 
+/* }*/
+
+/*.bg-header-koin ul li a{*/
+/*    color: white;*/
+/*}*/
+
+.score-koin-index i{
+    color: #80808078;
+}
+
+.score-koin-index i:last-child{
+    color: green;
+}
 

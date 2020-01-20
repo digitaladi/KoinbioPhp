@@ -4,7 +4,7 @@
 {% block body %}
 <h1 class="title_koin">Affichage des fiches</h1>
 
-    <button type="button" class="btn btn-success btn-xs "><a href="{{ path('admin_commentaire_add') }}">Ajouter un fiche</a></button>
+    <button type="button" class="btn btn-success btn-xs "><a href="{{ path('admin_fiche_add') }}">Ajouter un fiche</a></button>
     <br><br>
     <table class="table">
 
@@ -20,15 +20,15 @@
         <tr>
             <td>{{ fiche.id }}</td>
             <td>{{ fiche.plantName }}</td>
-            <td><p><a href="{{ path('admin_fiche_show', {"id":fiche.id}) }}">Voir</a></p></td>
-            <td> <p>   <a href="{{ path('admin_fiche_edit',{ 'id'   : fiche.id }) }}">Editer</a></p></td>
-            <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_fiche_delete',{ "id": fiche.id }) }}">Supprimer</a></p></td>
+            <td><p><a href="{{ path('admin_fiche_show', {"id":fiche.id}) }}"><i class="fa fa-eye  color-marron-koin" aria-hidden="true"></i></a></p></td>
+            <td> <p>   <a href="{{ path('admin_fiche_edit',{ 'id'   : fiche.id }) }}"><i class="fa fa-pencil-square  color-marron-koin" aria-hidden="true"></i></a></p></td>
+            <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_fiche_delete',{ "id": fiche.id }) }}"><i class="fa fa-trash  color-marron-koin" aria-hidden="true"></i></a></p></td>
         </tr>
 
 
 
     {% endfor %}
-        <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
-    </table>
 
+    </table>
+{#    <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>#}
 {% endblock %}

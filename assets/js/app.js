@@ -6,15 +6,17 @@
  */
 
 // any CSS you require will output into a single css file (app.css in this case)
+
+
+
+
 require('../css/app.scss');
-
-
-require('../css/style.css');
 require('../fontawesome/css/font-awesome.min.css');
 require('../fonts/Ink Free.eot');
 require('../fonts/Ink Free.otf');
 require('../fonts/Ink Free.ttf');
 require('../fonts/Ink Free.woff');
+require('../fonts/Puritas LT W04 Bold Italic.ttf');
 
 
 
@@ -33,9 +35,12 @@ const $ = require('jquery');
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
 
+
 // or you can include specific pieces
 // require('bootstrap/js/dist/tooltip');
 // require('bootstrap/js/dist/popover');
+
+require('../css/style.css');
 
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();

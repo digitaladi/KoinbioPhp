@@ -73,7 +73,7 @@
                             <a class="dropdown-item" href="{{ path('admin_fiche_index') }}">Gestions des fiches</a>
                             <div class="dropdown-divider"></div>
                             {#                            <a class="dropdown-item" href="#">Gestion des articles</a>#}
-                            <div class="dropdown-divider"></div>
+{#                            <div class="dropdown-divider"></div>#}
                             <a class="dropdown-item" href="{{ path('admin_article_index') }}"> gestion des articles</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ path('admin_categorie_fiche_index') }}"> gestion des catégories de Fiches</a>
@@ -90,6 +90,9 @@
                     </li>
                 {% endif %}
             </ul>
+
+
+
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -103,10 +106,16 @@
             <div class="little_nav2">
 
 
-                <div class="col-md-3 color-marron-koin" style="font-weight: bold;">{{app.user.username}} </div>
+                <div class="col-md-4 color-marron-koin" style="font-weight: bold;">{{app.user.username}} </div>
                 <div class="col-md-2" ><a href="{{ path("logout") }}">Se deconnecter</a></div>
+                <div class="col-md-2 score-koin-index" >
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <i class="fa fa-circle" aria-hidden="true"></i></div>
                 <div  class="col-md-2"><a href="#">Mon compte</a></div>
-                <div class="col-md-5 firt-item-little_nav2-koin" >
+                <div class="col-md-2 firt-item-little_nav2-koin" >
                     <a href="#"> <i class="color-marron-koin fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                     <a href="#"> <i class="color-marron-koin fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
                     <a href="#"> <i class="color-marron-koin fa fa-instagram fa-2x" aria-hidden="true"></i></a>

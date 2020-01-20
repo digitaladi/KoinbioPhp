@@ -5,7 +5,8 @@
 
     <h1 class="title_koin">Affichage  des utilisateurs</h1>
 
-
+    <button type="button" class="btn btn-success btn-xs "><a href="{{ path('security_admin_register') }}">Ajouter un utilisateur</a></button>
+    <br><br>
     <table class="table">
 
         <tr>
@@ -19,6 +20,7 @@
         </tr>
 
         {% for user in users %}
+{#            {{ dump(user) }}#}
             <tr>
                 <td>{{ user.email }}</td>
                 <td>{{ user.firstname }}</td>

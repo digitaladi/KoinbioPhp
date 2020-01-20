@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Fiche;
 use App\Form\FicheType;
@@ -18,7 +18,8 @@ class FicheController extends AbstractController
     {
 
         $fiches = $this->getDoctrine()->getRepository(Fiche::class)->findAll();
-//        var_dump($fiches);
+
+//        dd($fiches);
 //        die("ok");
         return $this->render('admin/fiche/index.html.twig', array("fiches" => $fiches));
     }
@@ -29,6 +30,7 @@ class FicheController extends AbstractController
     public function addFicheAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $fiche = new Fiche();
+
         $form =  $this->createForm(FicheType::class, $fiche);
 
         $form->handleRequest($request);

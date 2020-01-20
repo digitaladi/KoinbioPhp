@@ -30,9 +30,9 @@
                 <td>{{ receptable.color }}</td>
                 <td>{{ receptable.matiere}}</td>
                 <td>{{ receptable.forme }}</td>
-                <td><p><a href="{{ path('admin_receptable_show', {'id':receptable.id}) }}">Voir</a></p></td>
-                <td> <p>   <a href="{{ path('admin_receptable_edit', {'id':receptable.id}) }}">Editer</a></p></td>
-                <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_receptable_delete', {'id':receptable.id}) }}">Supprimer</a></p></td>
+                <td><p><a href="{{ path('admin_receptable_show', {'id':receptable.id}) }}"><i class="fa fa-eye  color-marron-koin" aria-hidden="true"></i></a></p></td>
+                <td> <p>   <a href="{{ path('admin_receptable_edit', {'id':receptable.id}) }}"><i class="fa fa-pencil-square  color-marron-koin" aria-hidden="true"></i></a></p></td>
+                <td><p><a onclick="return confirm('Etes vous supprimer cette receptable?');" href="{{ path('admin_receptable_delete', {'id':receptable.id}) }}"><i class="fa  fa-trash  color-marron-koin" aria-hidden="true"></i></a></p></td>
             </tr>
 
 

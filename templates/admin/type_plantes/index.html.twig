@@ -23,9 +23,9 @@
                 <td>{{ type.id }}</td>
                 <td>{{ type.name }}</td>
                 <td>{{ type.Descriptif }}</td>
-                <td><p><a href="{{ path('admin_type_plantes_show', {"id":type.id}) }}">Voir</a></p></td>
-                <td> <p>   <a href="{{ path('admin_type_plante_edit', {"id":type.id}) }}">Editer </a></p></td>
-                <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_type_plantes_delete', {"id":type.id}) }}">Supprimer</a></p></td>
+                <td><p><a href="{{ path('admin_type_plantes_show', {"id":type.id}) }}"><i class="fa fa-eye  color-marron-koin" aria-hidden="true"></i></a></p></td>
+                <td> <p>   <a href="{{ path('admin_type_plante_edit', {"id":type.id}) }}"><i class="fa fa-pencil-square  color-marron-koin" aria-hidden="true"></i></a></p></td>
+                <td><p><a onclick="return confirm('Etes vous supprimer cette fiche?');" href="{{ path('admin_type_plantes_delete', {"id":type.id}) }}"><i class="fa fa-trash  color-marron-koin" aria-hidden="true"></i></a></p></td>
             </tr>
 
 
