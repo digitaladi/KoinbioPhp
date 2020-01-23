@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ReceptablePlanteController extends AbstractController
+class AdminReceptablePlanteController extends AbstractController
 {
     /**
      * @Route("/receptable/plante/index", name="receptable_plante_index")

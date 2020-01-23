@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CommentaireController extends AbstractController
+class AdminCommentaireController extends AbstractController
 {
     /**
      * @Route("/admin/commentaire/index", name="admin_commentaire_index")

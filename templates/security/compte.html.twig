@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h1 class="title_koin">Mon compte</h1>
+
+
+{#    {{ dump(user) }}#}
+
+
+    <!--Table-->
+    <table class="table table-striped w-auto">
+
+        <!--Table head-->
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom utilisateur</th>
+            <th>Mail</th>
+            <th>Numéro de rue</th>
+            <th>Type de rue</th>
+            <th>Nom de la rue</th>
+            <th>code postale</th>
+            <th>Commune</th>
+        </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody>
+        <tr class="table-info">
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.streetNumber }}</td>
+
+            <td>{{ user.streetType }}</td>
+            <td>{{ user.streetName }}</td>
+            <td>{{ user.postalCode }}</td>
+            <td>{{ user.commune }}</td>
+        </tr>
+
+
+
+
+
+        </tbody>
+        <!--Table body-->
+
+
+    </table>
+    <!--Table-->
+
+
+
+
+{% endblock %}
+
+
+

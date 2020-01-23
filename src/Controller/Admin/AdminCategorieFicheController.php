@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CategorieFicheController extends AbstractController
+class AdminCategorieFicheController extends AbstractController
 {
     /**
      * @Route("admin/categorie/fiche/index", name="admin_categorie_fiche_index")

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FicheController extends AbstractController
+class AdminFicheController extends AbstractController
 {
     /**
      * @Route("admin/fiche/index", name="admin_fiche_index")

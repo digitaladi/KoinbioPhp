@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class IndexController extends AbstractController
+class AdminIndexController extends AbstractController
 {
     /**
      * @Route("/", name="index")

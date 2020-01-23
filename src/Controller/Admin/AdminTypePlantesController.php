@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TypePlantesController extends AbstractController
+class AdminTypePlantesController extends AbstractController
 {
     /**
      * @Route("/type/plantes", name="type_plantes_index")

@@ -92,13 +92,30 @@ class SecurityController extends AbstractController
     }
 
 
+    /**
+     *
+     * @Route('/compte/{id}', name="compte_user")
+     */
+//public function show(User $user){
+//
+//    $user = $this->getDoctrine()->getRepository(User::class)->find($user);
+//
+//}
 
 
 
 
+    /**
+     *
+     * @Route("/profil", name="compte_profil")
+     */
+    public function compte(){
 
+       $user =  $this->getUser();
+//        dd($user);
+     return $this->render('security/compte.html.twig', array('user'=>$user));
 
-
+    }
 
 
 
