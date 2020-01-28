@@ -47,4 +47,13 @@ class FicheRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getFicheByUser(){
+        return $this->createQueryBuilder('f')
+//            ->select('f.plant_name')
+
+            ->getQuery()
+            ->getResult();
+    }
+
 }
