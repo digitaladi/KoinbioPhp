@@ -2,6 +2,7 @@
 
 namespace App\Controller\Others;
 
+use App\Entity\Fiche;
 use App\Entity\User;
 use App\Form\UserEditType;
 use App\Form\UserType;
@@ -113,7 +114,10 @@ class SecurityController extends AbstractController
 
        $user =  $this->getUser();
 //        dd($user);
-     return $this->render('security/compte.html.twig', array('user'=>$user));
+        $nbfiches = $this->getDoctrine()->getRepository(Fiche::class)->getFicheByUser($user);
+//        dd(count($Fiches));
+//        die("ok");
+     return $this->render('security/compte.html.twig', array('user'=>$user, 'nbrfiches'=> $nbfiches));
 
     }
 

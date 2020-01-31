@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Fiche;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -48,8 +49,12 @@ class FicheRepository extends ServiceEntityRepository
     }
     */
 
-    public function getFicheByUser(){
+    public function getFicheByUser($user){
         return $this->createQueryBuilder('f')
+//            ->select('user')
+            ->innerJoin('f.users', 'u', 'WITH' , 'u.id = :id')
+            ->setParameter('id', $user)
+
 //            ->select('f.plant_name')
 
             ->getQuery()
