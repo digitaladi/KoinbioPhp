@@ -1,0 +1,29 @@
+<div class="container big-header-koinbio">
+    <div class="col-4 wrap-hambuger"><i class="fa  fa-bars fa-2x" aria-hidden="true"><span> Menu</span> </i></div>
+    <div class="col-4 wrap-logo"><img src="{{ asset('build/images/logo-koinbio.png') }}" alt=""></div>
+    <div class="col-4 wrap-search"><i class="fa fa-search fa-2x" aria-hidden="true"></i></div>
+</div>
+
+<div class="container-fluid color-kaki-koin ">
+        {% if app.user %}
+
+        <div class="container row little_nav2">
+            <div class="col-md-4 col-sm-12" style="font-weight: bold;"><a href="">{{app.user.username}} </a> </div>
+            <div class="col-md-4 col-sm-12" ><a href="{{ path("logout") }}">Se deconnecter</a></div>
+
+            <div  class="col-md-4 col-sm-12"><a href="{{ path('compte_profil') }}">Mon compte</a>
+            </div>
+        </div>
+        {% else %}
+            <div class="container row little_nav2">
+                <div class="col-md-6" ><a href="{{ path("security_login") }}">Se connecter</a> </div>
+                <div class="col-md-6"><a href="{{ path("Registration_register") }}">S'inscrire</a> </div>
+            </div>
+        {% endif %}
+    </div>
+
+
+
+
+
+

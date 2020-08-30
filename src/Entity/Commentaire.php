@@ -30,7 +30,7 @@ class Commentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commentaires")
      */
-    private $user;
+    private $user_id;
 
     /**
      * @ORM\Column(type="datetime", nullable=false)
@@ -50,7 +50,8 @@ class Commentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Fiche", inversedBy="commentaires")
      */
-    private $fiche;
+    private $fiche_id;
+
 
     public function __construct()
     {
@@ -74,17 +75,22 @@ class Commentaire
         return $this;
     }
 
-    public function getUser()
+    /**
+     * @return mixed
+     */
+    public function getUserId()
     {
-        return $this->user;
+        return $this->user_id;
     }
 
-    public function setUser( User $user)
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id): void
     {
-        $this->user = $user;
-
-        return $this;
+        $this->user_id = $user_id;
     }
+
 
     public function getCreatedAt()
     {
@@ -141,17 +147,23 @@ class Commentaire
         return $this;
     }
 
-    public function getFicheId(): ?Fiche
+    /**
+     * @return mixed
+     */
+    public function getFicheId()
     {
-        return $this->fiche;
+        return $this->fiche_id;
     }
 
-    public function setFicheId(?Fiche $fiche): self
+    /**
+     * @param mixed $fiche_id
+     */
+    public function setFicheId($fiche_id): void
     {
-        $this->fiche = $fiche;
-
-        return $this;
+        $this->fiche_id = $fiche_id;
     }
+
+
 
     public function getArticle(): ?Article
     {
@@ -166,15 +178,5 @@ class Commentaire
     }
 
 
-    public function getFiche(): ?Fiche
-    {
-        return $this->fiche;
-    }
 
-    public function setFiche(?Fiche $fiche): self
-    {
-        $this->fiche = $fiche;
-
-        return $this;
-    }
 }

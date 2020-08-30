@@ -21,22 +21,60 @@
     src: url("../fonts/Ink Free.woff") format('woff');
 }
 
+.big-header-koinbio {
+margin-bottom: 10px;
+    margin-top: 10px;
 
 
+}
+
+.big-header-koinbio div{
+    display: inline-block;
+    width: 33%;
+}
+
+.wrap-hambuger{
+    color: #395E1B;
+    text-align: left;
+
+}
+
+.wrap-search{
+    color: #395E1B;
+    text-align: right;
+
+}
+
+.wrap-logo{
+    text-align: center;
+}
+
+.wrap-logo img{
+  width: 15%;
+}
+
+
+.wrap-hambuger span {
+    color: #395E1B;
+    font-family: 'Ink Free', serif ;
+}
 
 .color-kaki-koin{
-    color: #5f6c0a;
+    background-color: #395E1B;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 18px;
 }
 
 
-.degrade-background-koin{
-    background: #812500; /* Old browsers */
-    background: -moz-linear-gradient(left,  #812500 0%, #5f6c0a 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left,  #812500 0%,#5f6c0a 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right,  #812500 0%,#5f6c0a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#812500', endColorstr='#5f6c0a',GradientType=1 ); /* IE6-9 */
+/*.degrade-background-koin{*/
+/*    background: #812500; !* Old browsers *!*/
+/*    background: -moz-linear-gradient(left,  #812500 0%, #5f6c0a 100%); !* FF3.6-15 *!*/
+/*    background: -webkit-linear-gradient(left,  #812500 0%,#5f6c0a 100%); !* Chrome10-25,Safari5.1-6 *!*/
+/*    background: linear-gradient(to right,  #812500 0%,#5f6c0a 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+/*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#812500', endColorstr='#5f6c0a',GradientType=1 ); !* IE6-9 *!*/
 
-}
+/*}*/
 
 .white-koin-puritas{
     font-family: 'Puritas LT W04 Medium Italic', serif;
@@ -74,150 +112,68 @@ body {
 
 }
 
-#foot_little{
 
-    width: 100%;
-    height: 40px;
+.little_nav2{
+    margin: 0 auto;
     text-align: center;
-    line-height: 39px;
-    color: white;
-
 }
 
 
-.bg-header-koin{
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#812500+0,5f6c0a+100 */
-    background: #812500; /* Old browsers */
-    background: -moz-linear-gradient(left,  #812500 0%, #5f6c0a 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left,  #812500 0%,#5f6c0a 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right,  #812500 0%,#5f6c0a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#812500', endColorstr='#5f6c0a',GradientType=1 ); /* IE6-9 */
-    color:white;
-    font-size: 18px;
+.wrap-img-header{
+    padding: 0;
 }
 
-.little_nav{
-    width: 100%;
-    border-bottom: 1px dashed #5f6c0a;
-    height: 40px;
-    margin-left: 0;
-    padding-top: 4px;
+.wrap-img-header img{
+   width: 100%;
 }
 
 
 .little_nav2 div{
     float: left;
     display: inline-block;
-    height: 30px;
-    text-align: end;
-    border-left: 1px dashed black;
     line-height: 33px;
 
 }
 
-
-.firt-item-little_nav2-koin{
-    border-right: 1px dashed black;
-}
-
-.title_koin{
-    font-family: 'Puritas LT W04 Medium Italic', serif;
-    margin-bottom: 60px;
-    color: #5f6c0a;
-    border-left: 7px solid #812500;
-    padding-left: 15px;
-    margin-top: 50px;
-    font-size: 3em;
+.little_nav2 div a{
+color: #c9e430;
 
 }
 
-.little_nav2{
-    width: 70%;
-    margin: 0 auto;
+
+.little_nav2 div:last-child{
+   text-align: right;
 }
 
-
-.accroche-koin{
-    font-size: 20px;
-
-    padding: 1%;
-    color: white;
-    margin-top: 2%;
+.little_nav2 div:first-child{
+    text-align: left;
 }
 
 
 
 
-.btn-koin-special{
-    color: #812500;
-    width: 20%;
-    border-left: 1px dashed #812500;
-    padding: 5px;
-    text-align: center;
-    /*border-left: none;*/
-    background-color: white;
-
-    border-top: 1px dashed white;
-}
-
-.btn-koin-special:first-child{
-    border-left: 1px dashed white;
-}
-.btn-koin-special:hover{
-    background-color: transparent;
-    color: white;
-    border-left: 1px dashed white;
-    border-top: 1px dashed white;
-    border-bottom: 1px dashed white;
-
-}
-
-.btn-koin-special:first-child:hover {
-    border-left: 1px dashed white;
-}
-
-.btn-koin-special:last-child:hover{
-    border-right: 1px dashed white;
-}
 
 
-.wrap-user-command{
-    width: 46%;
-    margin: 0 auto;
-}
-.accroche-koin p{
-    text-align: center;
-    /*font-family: 'Puritas LT W04 Medium Italic', serif;*/
-}
 
 
-.accroche-title{
-    font-family: 'Puritas LT W04 Medium Italic', serif;
-    font-size: 55px;
-    text-align: center;
-    margin: 0 auto;
-}
 
 
-.firt-item-little_nav2-koin i:hover{
-    opacity: 0.5;
-}
 
 
-/*.bg-header-koin ul{*/
-/*     margin: 0 auto;*/
 
-/* }*/
 
-/*.bg-header-koin ul li a{*/
-/*    color: white;*/
-/*}*/
 
-.score-koin-index i{
-    color: #80808078;
-}
 
-.score-koin-index i:last-child{
-    color: green;
-}
+
+
+
+
+
+
+
+
+
+
+
+
 

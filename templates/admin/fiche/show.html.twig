@@ -5,12 +5,15 @@
 {% block body %}
 <h1 class="title_koin">{{ fiche.plantName }}</h1>
 
- <ul class="list-group">
-  <li class="list-group-item">{{fiche.plantName }}</li>
-  <li class="list-group-item">{{ fiche.conseil }}</li>
-  <li class="list-group-item">{{ fiche.descriptif }}</li>
-  <li class="list-group-item">{{ fiche.arrosage }}</li>
-  <li class="list-group-item">{{ fiche.conseil }}</li>
+ <ul class="list-group mb-lg-5">
+
+  <li class="list-group-item active"><span class="font-weight-bold"> L'id : </span>{{ fiche.id }}</li>
+  <li class="list-group-item"><span class="font-weight-bold"> Nom de la plante : </span>{{ fiche.plantName }}</li>
+  <li class="list-group-item"><span class="font-weight-bold"> Type de plante : </span>{{ fiche.typePlante.name }}</li>
+  <li class="list-group-item"><span class="font-weight-bold"> Descriptif : </span>{{ fiche.typePlante.descriptif }}</li>
+  <li class="list-group-item"><span class="font-weight-bold"> Catégorie : </span>{{ fiche.categorieFiche.name }} °</li>
+  <li class="list-group-item"><span class="font-weight-bold"> Catégorie : </span>{{ fiche.emplacement }} °</li>
+  <li class="list-group-item"><span class="font-weight-bold"> Aperçu : </span><img src="{{ asset('uploads/fiches/'~ fiche.image ) }}" alt="{{ fiche.image }}" title="{{ fiche.image }}" width="30%" height="auto"></li>
  </ul>
 
 

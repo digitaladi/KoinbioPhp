@@ -52,12 +52,15 @@ class SecurityController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $encoder){
         $user = new User();
         $user->setRoles(['ROLE_USER']);
+//        $date = new \DateTime();
+//        $date_day = $date->format('Y-m-d H:i:s');
+        $user->setCreatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();
 //        $form = $this->createForm(UserType::class, $user);
         $form = $this->createFormBuilder($user)
 
             ->add('username',TextType::class)
-            ->add('email', EmailType::class)
+//            ->add('email', EmailType::class)
 //            ->add('password', PasswordType::class)
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -67,8 +70,8 @@ class SecurityController extends AbstractController
                 'first_options'  => ['label' => 'Password'],
                 'second_options' => ['label' => 'Repeat Password'],
             ])
-            ->add('postal_code',NumberType::class)
-            ->add('commune', TextType::class)
+//            ->add('postal_code',NumberType::class)
+//            ->add('commune', TextType::class)
             ->add('submit', SubmitType::class)
             ->getForm();
         $form->handleRequest($request);
@@ -76,6 +79,7 @@ class SecurityController extends AbstractController
 
 
         if($form->isSubmitted() && $form->isValid()){
+
             $password = $encoder->encodePassword($user, $user->getPassword()) ;
             $user->setPassword($password);
 //            dd($user);

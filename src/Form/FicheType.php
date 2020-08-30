@@ -4,38 +4,58 @@ namespace App\Form;
 
 use App\Entity\CategorieFiche;
 use App\Entity\Fiche;
+
 use App\Entity\ReceptablePlante;
 use App\Entity\TypePlantes;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class FicheType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('plant_name', TextType::class)
-            ->add('plant_scientist_name')
-            ->add('origin')
-            ->add('type')
-            ->add('image')
-            ->add('exposed_temperature')
-            ->add('arrosage')
-            ->add('relative_humidity')
-            ->add('emplacement')
-            ->add('descriptif')
-            ->add('saison_floraison')
-            ->add('ground')
-            ->add('servicing')
-            ->add('insolation')
-            ->add('is_semis')
-            ->add('is_medicinale')
-            ->add('create_at')
-            ->add('conseil')
+            ->add('plant_name', TextType::class,[
+                'label'=> 'Nom de la plante',
+            ])
+//            ->add('plant_scientist_name')
+//            ->add('origin')
+
+            ->add('imageFile', VichImageType::class,[
+                'required' => false ,
+                'allow_delete' => false , //Permet de cacher le champ qui permet de supprimer l'image remplacé
+                'download_uri' => false ,
+                'download_label' => false , //cacher le lien qui permet de télécharger l'image dand edit
+                'image_uri' => false, //pour cacher l'image dans à modifier dans l'edit
+                'label'=> 'Image de la plante'
+
+
+            ])
+//            ->add('exposed_temperature')
+//            ->add('arrosage')art
+//            ->add('relative_humidity')
+            ->add('emplacement', TextType::class,[
+                'label'=> 'L\'emplacement de la plante',
+            ])
+//            ->add('descriptif')
+//            ->add('saison_floraison')
+//            ->add('ground')
+//            ->add('servicing')
+//            ->add('insolation')
+//            ->add('is_semis')
+            ->add('is_medicinale',CheckboxType::class,[
+                'required' => false ,
+                'label'=> 'Cette plante est t\'elle médicinale ?',])
+
+//            ->add('conseil')
             ->add('typePlante', EntityType::class,
                 array("class"=> TypePlantes::class,
                      'choice_label' => 'name'))
@@ -45,7 +65,7 @@ class FicheType extends AbstractType
                 'choice_label' => 'name'))
 //            ->add('users', EntityType::class, array('class' => User::class, 'choice_label' => 'username', 'expanded'  => true,
 //                'multiple'  => true,))
-            ->add('Envoyer', SubmitType::class)
+            ->add('Enregistrer', SubmitType::class)
         ;
     }
 

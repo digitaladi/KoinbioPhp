@@ -13,6 +13,7 @@
         <li class="list-group-item">{{ article.auteur }}</li>
         <li class="list-group-item">{{ article.createdAt|date("d/m/Y") }}</li>
         <li class="list-group-item">{{ article.corp }}</li>
+        <li class="list-group-item"><span class="font-weight-bold"> Aperçu : </span><img src="{{ asset('uploads/articles/'~ article.image ) }}" alt="{{ article.image }}" title="{{ article.image }}" width="30%" height="auto"></li>
 
     </ul>
 {% endblock %}

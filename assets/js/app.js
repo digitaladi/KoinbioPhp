@@ -17,6 +17,8 @@ require('../fonts/Ink Free.otf');
 require('../fonts/Ink Free.ttf');
 require('../fonts/Ink Free.woff');
 require('../fonts/Puritas LT W04 Bold Italic.ttf');
+// require('../uploads/images/articles');
+// require('../uploads/images/fiches');
 
 
 

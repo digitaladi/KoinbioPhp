@@ -28,21 +28,24 @@ class AdminFicheController extends AbstractController
      * @Route("admin/fiche/add", name="admin_fiche_add")
      */
     public function addFicheAction(Request $request){
+
         $em = $this->getDoctrine()->getManager();
         $fiche = new Fiche();
 
         $form =  $this->createForm(FicheType::class, $fiche);
-
+        $date = new \DateTime();
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid()){
+            $fiche->setCreateAt($date);
             $em->persist($fiche);
             $em->flush();
+
+
             $this->addFlash('success', 'Fiche ajouté!');
             return $this->redirectToRoute("admin_fiche_index");
         }
 
-
+//        dd("ok");
         return $this->render("admin/fiche/add.html.twig", array("form_fiche" => $form->createView() ));
 
 
