@@ -55,6 +55,7 @@ class SecurityController extends AbstractController
 //        $date = new \DateTime();
 //        $date_day = $date->format('Y-m-d H:i:s');
         $user->setCreatedAt(new \DateTime());
+        $user->setUpdatedAt(new \DateTime());
         $em = $this->getDoctrine()->getManager();
 //        $form = $this->createForm(UserType::class, $user);
         $form = $this->createFormBuilder($user)

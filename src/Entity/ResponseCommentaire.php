@@ -24,7 +24,7 @@ class ResponseCommentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Commentaire", inversedBy="responseCommentaires")
      */
-    private $id_commentaire;
+    private $commentaire;
 
     public function getId()
     {
@@ -43,14 +43,14 @@ class ResponseCommentaire
         return $this;
     }
 
-    public function getIdCommentaire()
+    public function getCommentaire()
     {
-        return $this->id_commentaire;
+        return $this->commentaire;
     }
 
-    public function setIdCommentaire($id_commentaire)
+    public function setCommentaire($commentaire)
     {
-        $this->id_commentaire = $id_commentaire;
+        $this->commentaire = $commentaire;
 
         return $this;
     }

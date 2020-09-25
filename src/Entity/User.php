@@ -88,7 +88,7 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="user_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="user")
      */
     private $commentaires;
 
@@ -112,6 +112,10 @@ class User implements UserInterface
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
 
 
@@ -124,7 +128,7 @@ class User implements UserInterface
     {
 
         $this->commentaires = new ArrayCollection();
-        $this->id_fiche = new ArrayCollection();
+//        $this->id_fiche = new ArrayCollection();
         $this->fiche = new ArrayCollection();
     }
 
@@ -317,7 +321,7 @@ class User implements UserInterface
     {
         if (!$this->commentaires->contains($commentaire)) {
             $this->commentaires[] = $commentaire;
-            $commentaire->setUserId($this);
+            $commentaire->setUser($this);
         }
 
         return $this;
@@ -328,8 +332,8 @@ class User implements UserInterface
         if ($this->commentaires->contains($commentaire)) {
             $this->commentaires->removeElement($commentaire);
             // set the owning side to null (unless already changed)
-            if ($commentaire->getUserId() === $this) {
-                $commentaire->setUserId(null);
+            if ($commentaire->getUser() === $this) {
+                $commentaire->setUser(null);
             }
         }
 
@@ -404,6 +408,7 @@ class User implements UserInterface
 
         return $this;
     }
+
 
 
 

@@ -153,7 +153,7 @@ class Fiche implements \Serializable
     private $users;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="fiche_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="fiche")
      */
     private $commentaires;
 

@@ -30,7 +30,7 @@ class Commentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commentaires")
      */
-    private $user_id;
+    private $user;
 
     /**
      * @ORM\Column(type="datetime", nullable=false)
@@ -38,7 +38,7 @@ class Commentaire
     private $created_at;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ResponseCommentaire", mappedBy="id_commentaire")
+     * @ORM\OneToMany(targetEntity="App\Entity\ResponseCommentaire", mappedBy="commentaire")
      */
     private $responseCommentaires;
 
@@ -50,7 +50,7 @@ class Commentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Fiche", inversedBy="commentaires")
      */
-    private $fiche_id;
+    private $fiche;
 
 
     public function __construct()
@@ -78,17 +78,17 @@ class Commentaire
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->user_id;
+        return $this->user;
     }
 
     /**
-     * @param mixed $user_id
+     * @param mixed $user
      */
-    public function setUserId($user_id): void
+    public function setUser($user): void
     {
-        $this->user_id = $user_id;
+        $this->user_id = $user;
     }
 
 
@@ -116,7 +116,7 @@ class Commentaire
     {
         if (!$this->responseCommentaires->contains($responseCommentaire)) {
             $this->responseCommentaires[] = $responseCommentaire;
-            $responseCommentaire->setIdCommentaire($this);
+            $responseCommentaire->setCommentaire($this);
         }
 
         return $this;
@@ -127,8 +127,8 @@ class Commentaire
         if ($this->responseCommentaires->contains($responseCommentaire)) {
             $this->responseCommentaires->removeElement($responseCommentaire);
             // set the owning side to null (unless already changed)
-            if ($responseCommentaire->getIdCommentaire() === $this) {
-                $responseCommentaire->setIdCommentaire(null);
+            if ($responseCommentaire->getCommentaire() === $this) {
+                $responseCommentaire->setCommentaire(null);
             }
         }
 
@@ -150,17 +150,17 @@ class Commentaire
     /**
      * @return mixed
      */
-    public function getFicheId()
+    public function getFiche()
     {
-        return $this->fiche_id;
+        return $this->fiche;
     }
 
     /**
-     * @param mixed $fiche_id
+     * @param mixed $fiche
      */
-    public function setFicheId($fiche_id): void
+    public function setFiche($fiche): void
     {
-        $this->fiche_id = $fiche_id;
+        $this->fiche = $fiche;
     }
 
 

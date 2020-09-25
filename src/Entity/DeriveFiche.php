@@ -24,7 +24,7 @@ class DeriveFiche
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Fiche")
      */
-    private $id_fiche;
+    private $fiche;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -48,14 +48,14 @@ class DeriveFiche
         return $this;
     }
 
-    public function getIdFiche(): ?Fiche
+    public function getFiche(): ?Fiche
     {
-        return $this->id_fiche;
+        return $this->fiche;
     }
 
-    public function setIdFiche(?Fiche $id_fiche): self
+    public function setFiche(?Fiche $ifiche): self
     {
-        $this->id_fiche = $id_fiche;
+        $this->id_fiche = $fiche;
 
         return $this;
     }
