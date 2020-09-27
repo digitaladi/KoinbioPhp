@@ -12,6 +12,10 @@ require('../css/app.scss');
 //require('mon_app.js');
 // require('../css/style.css');
 
+// require('../js/utilJS/jquerySlide');
+// require('../js/utilJS/slide');
+// require('../js/utilJS/jquerymin');
+
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 

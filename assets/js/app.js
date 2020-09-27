@@ -44,6 +44,11 @@ require('bootstrap');
 // require('bootstrap/js/dist/popover');
 
 require('../css/style.css');
+require('../css/slide.css');
+
+
+// require('../js/utilJS/test');
+
 
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();

@@ -26,6 +26,20 @@ body{
     margin: 0;
     padding: 0;
 }
+
+.container{
+    min-height: 800px;
+}
+
+#nav_koinbio{
+    background-color: #5eb5e0;
+    position: absolute;
+    left: 200px;
+    z-index: 10;
+
+}
+
+
 .big-header-koinbio {
 margin-bottom: 0;
     margin-top: 0;
@@ -38,26 +52,25 @@ margin-bottom: 0;
     width: 33%;
 }
 
-.wrap-hambuger{
+.title_koinbio{
+    font-family: 'Ink Free', serif ;
+    padding: 20px;
+    background: #c9e430;
     color: #395E1B;
-    text-align: left;
-
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
 }
 
-.wrap-search{
-    color: #395E1B;
-    text-align: right;
 
-}
 
 .wrap-logo{
-    width: 17%;
-    margin-left: 14%;
-    float: left;
+    margin: 0 auto;
+    width: 50px;
 }
 
 .wrap-logo img{
-  width: 15%;
+  width: 50px;
 }
 
 
@@ -213,56 +226,20 @@ color: #395E1B;
 
 }
 
-.demo {
-    font-size: 25px;
-    /*  background-color: red;*/
-    width: 0;
-    height: 0;
-    float: left;
-    border-style: solid;
-    border-width: 0 70px 180px 0;
-    border-color: transparent #9A3408 transparent transparent;
-    line-height: 0px;
-    _border-color: #000000 #9A3408 #000000 #000000;
-    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
 
-}
-
-
-.demo1 {
-    font-size: 18px;
-    background-color: #9A3408;
-    width: 204px;
-    height: 204px;
-    float: left;
-
-
-}
-
-.accroche .accroche{
+.accroche{
 
     font-size: 18px;
 }
 
 
-.demo2{
-    font-size: 25px;
-    width: 0;
-    height: 0;
-    float: left;
-    border-style: solid;
-    border-width: 180px 70px 0 0;
-    border-color: #9A3408 transparent transparent transparent;
-    line-height: 0px;
-    _border-color: #9A3408 #000000 #000000 #000000;
-    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-}
+
 
 
 .sect_koinbio{
     margin: 0 auto;
     height: 100vh;
-    width: 70%;
+    width: 100%;
 
 
 }
@@ -353,8 +330,23 @@ color: #395E1B;
 
 
 
+#reseaux_wrap_absolute{
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 3.9%;
+    height: 700px;
+    background-color: #c9e430;
+    border-left: none;
+}
 
-
-
+.wrap_item_gestion .item_gestion{
+    display: inline-block;
+    width: max-content;
+    background-color: #395E1B;
+    padding: 20px;
+    margin-top: 20px;
+    color: white;
+}
 
 

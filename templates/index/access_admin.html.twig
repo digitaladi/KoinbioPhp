@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+
+<h1 class="title_koinbio">administration du site</h1>
+
+
+    <div class="wrap_item_gestion">
+        <a class="item_gestion" href="{{ path('admin_index_user') }}">Gestion des utilisateurs</a>
+
+        <a class="item_gestion" href="{{ path('admin_fiche_index') }}">Gestions des fiches</a>
+
+
+
+        <a class="item_gestion" href="{{ path('admin_article_index') }}"> gestion des articles</a>
+
+        <a class="item_gestion" href="{{ path('admin_categorie_fiche_index') }}"> gestion des catégories de Fiches</a>
+
+
+        <a class="item_gestion" href="{{ path('type_plantes_index') }}"> gestion des types de plantes</a>
+
+        <a class="item_gestion" href="{{ path('receptable_plante_index') }}"> gestion des receptables  de plantes</a>
+
+
+        <a class="item_gestion" href="{{ path('admin_commentaire_index') }}"> gestion des commentaires</a>
+
+    </div>
+
+
+{% endblock %}

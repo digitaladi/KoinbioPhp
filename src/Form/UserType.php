@@ -56,9 +56,9 @@ class UserType extends AbstractType
             ))
             ->add('postal_code',NumberType::class)
             ->add('commune', TextType::class)
-            ->add('fiche', EntityType::class, array('class' => Fiche::class,'expanded'  => true,
-                'multiple'  => true,'choice_label' => 'plant_name'
-            ))
+//            ->add('fiche', EntityType::class, array('class' => Fiche::class,'expanded'  => true,
+//                'multiple'  => true,'choice_label' => 'plant_name'
+//            ))
 
 
 

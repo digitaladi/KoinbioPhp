@@ -4,56 +4,21 @@
 
 {% block body %}
 
-{#{{ dump(app) }}#}
-    <div class="wrap-img-header">
-        <h1 id="title_koibio">Bienvenue à Koinbio</h1>
-        <img src="{{ asset('build/images/fraisier-header.jpg') }}" alt="">
-{#        <img src="{{ asset('build/images/header.jpg') }}" alt="" class="img_header">#}
-        <div id="accroche_acces_wrap">
-            <div id="accroche_wrap"></div>
-            <div id="acces_wrap"></div>
 
 
-        </div>
-    </div>
-{#        <div class="wrap_formes">#}
-{#            <div class="wrap_forme">#}
-
-{#                <div class="demo"></div>#}
-{#                <div class="demo1"><p>Rubriques</p></div>#}
-{#                <div class="demo2"></div>#}
 
 
-{#            </div>#}
-
-{#            <div class="wrap_forme">#}
-
-{#                <div class="demo"></div>#}
-{#                <div class="demo1"><p class="accroche">Bienvenue à Koinbio .Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></div>#}
-{#                <div class="demo2"></div>#}
+            {# ICI LE SLIDER GALLERIE DE LA PAGE D ACCUEIL #}
+            {% include 'blocks/sliderGallery.html.twig' %}
 
 
-{#            </div>#}
-
-{#            <div class="wrap_forme">#}
-
-{#                <div class="demo"></div>#}
-{#                <div class="demo1"><p>Connexion <br>Inscription</p></div>#}
-{#                <div class="demo2"></div>#}
-
-
-{#            </div>#}
-
-{#        </div>#}
-
-        <div class="contain">
 
             <div class="sect_koinbio one"></div>
             <div class="sect_koinbio two"></div>
             <div class="sect_koinbio three"></div>
             <div class="sect_koinbio four"></div>
 
-        </div>
+
 
 
 {% endblock %}

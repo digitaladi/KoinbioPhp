@@ -2,10 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}koinBio!{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
+{#        {{ encore_entry_link_tags('test') }}#}
     {% endblock %}
 </head>
 <body>
@@ -16,89 +19,17 @@
 
 
 
-
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#">KoinBio</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#">Articles</a>#}
-{#                </li>#}
-{#                <li class="nav-item dropdown">#}
-{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                        Fiches#}
-{#                    </a>#}
-{#                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                        <a class="dropdown-item" href="#">Plantes fruitières</a>#}
-{#                        <a class="dropdown-item" href="#">Plantes légumières</a>#}
-{#                        <div class="dropdown-divider"></div>#}
-{#                        <a class="dropdown-item" href="#">Plantes médicinales</a>#}
-{#                    </div>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#">Galerie</a>#}
-{#                </li>#}
-{#                                <li class="nav-item">#}
-{#                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>#}
-{#                                </li>#}
-
-{#                {% if is_granted('ROLE_USER') %}#}
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                            Mes rubriques#}
-{#                        </a>#}
-{#                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                            <a class="dropdown-item" href="{{ path('fiches') }}">Mes fiches</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="">Mon score</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="#">Mes stats</a>#}
-
-
-{#                        </div>#}
-{#                    </li>#}
-{#                {% endif %}#}
-
-{#                {% if is_granted('ROLE_ADMIN') %}#}
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                            Administrateur#}
-{#                        </a>#}
-{#                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                            <a class="dropdown-item" href="{{ path('admin_index_user') }}">Gestion des utilisateurs</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="{{ path('admin_fiche_index') }}">Gestions des fiches</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                                                        <a class="dropdown-item" href="#">Gestion des articles</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="{{ path('admin_article_index') }}"> gestion des articles</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="{{ path('admin_categorie_fiche_index') }}"> gestion des catégories de Fiches</a>#}
-
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="{{ path('type_plantes_index') }}"> gestion des types de plantes</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="{{ path('receptable_plante_index') }}"> gestion des receptables  de plantes</a>#}
-
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="{{ path('admin_commentaire_index') }}"> gestion des commentaires</a>#}
-
-{#                        </div>#}
-{#                    </li>#}
-{#                {% endif %}#}
-
-
-
 {# read and display just one flash message type #}
 {% for message in app.flashes('success') %}
     {#        {{ dump(message) }}#}
-    <div class="alert alert-success container text-center" role="alert">  {{ message }} </div>
+    <div class="alert alert-success  text-center" role="alert">  {{ message }} </div>
 
 {% endfor %}
 
 
 {% for message in app.flashes('notice') %}
     {#        {{ dump(message) }}#}
-    <div class="alert alert-info container text-center" role="alert">  {{ message }} </div>
+    <div class="alert alert-info  text-center" role="alert">  {{ message }} </div>
 
 {% endfor %}
 
@@ -107,7 +38,7 @@
 
 {% for message in app.flashes('error') %}
     {#        {{ dump(message) }}#}
-    <div class="alert alert-danger container text-center" role="alert">   {{ message }} </div>
+    <div class="alert alert-danger  text-center" role="alert">   {{ message }} </div>
 
 {% endfor %}
 
@@ -116,16 +47,19 @@
 
 
 
-
+<div class="container">
 
     {% block body %}
+
+
+
 
 
 
     {% endblock %}
 
 
-
+</div>
 
 {% include 'blocks/footer.html.twig' %}
 

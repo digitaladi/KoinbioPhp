@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Mes rubriques{% endblock %}
+
+{% block body %}
+    <h1 class="title_koinbio">Mes rubriques</h1>
+
+
+    <div class="wrap_item_gestion">
+        <a class="item_gestion" href="{{ path('mes_fiches') }}">Mes fiches</a>
+
+        <a class="item_gestion" href="#">Mes statistiques</a>
+
+        <a class="item_gestion" href="#">Mon score</a>
+
+
+
+    </div>
+
+{% endblock %}

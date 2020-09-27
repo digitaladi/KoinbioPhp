@@ -20,4 +20,23 @@ class AdminIndexController extends AbstractController
         return $this->render('index/index.html.twig');
     }
 
+
+    /**
+     * @Route("/access/admin", name="access_admin")
+     */
+    public function AccessDashboardAdmin(){
+
+        return $this->render('index/access_admin.html.twig');
+
+    }
+
+    /**
+     * @Route("/user/rubriques", name="user_rubriques")
+     */
+    public function AccessRubriqueUser(){
+
+        return $this->render('index/rubriques.html.twig');
+
+    }
+
 }
