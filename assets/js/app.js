@@ -45,6 +45,8 @@ require('bootstrap');
 
 require('../css/style.css');
 require('../css/slide.css');
+require('../css/fiche.css');
+require('../css/article.css');
 
 
 // require('../js/utilJS/test');

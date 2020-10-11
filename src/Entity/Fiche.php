@@ -157,6 +157,48 @@ class Fiche implements \Serializable
      */
     private $commentaires;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $taille;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateBirthOrBuy;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $poid;
+
+
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $is_actif;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateDeath;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $reasonDeath;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $WhyFiche;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $bienfaits;
+
 
 
 
@@ -504,5 +546,103 @@ class Fiche implements \Serializable
     public function unserialize($serialized)
     {
         // TODO: Implement unserialize() method.
+    }
+
+    public function getTaille(): ?int
+    {
+        return $this->taille;
+    }
+
+    public function setTaille(?int $taille): self
+    {
+        $this->taille = $taille;
+
+        return $this;
+    }
+
+    public function getDateBirthOrBuy(): ?\DateTimeInterface
+    {
+        return $this->dateBirthOrBuy;
+    }
+
+    public function setDateBirthOrBuy(\DateTimeInterface $dateBirthOrBuy): self
+    {
+        $this->dateBirthOrBuy = $dateBirthOrBuy;
+
+        return $this;
+    }
+
+    public function getPoid(): ?int
+    {
+        return $this->poid;
+    }
+
+    public function setPoid(?int $poid): self
+    {
+        $this->poid = $poid;
+
+        return $this;
+    }
+
+
+
+    public function getIsActif(): ?bool
+    {
+        return $this->is_actif;
+    }
+
+    public function setIsActif(?bool $is_actif): self
+    {
+        $this->is_actif = $is_actif;
+
+        return $this;
+    }
+
+    public function getDateDeath(): ?\DateTimeInterface
+    {
+        return $this->dateDeath;
+    }
+
+    public function setDateDeath(?\DateTimeInterface $dateDeath): self
+    {
+        $this->dateDeath = $dateDeath;
+
+        return $this;
+    }
+
+    public function getReasonDeath(): ?string
+    {
+        return $this->reasonDeath;
+    }
+
+    public function setReasonDeath(?string $reasonDeath): self
+    {
+        $this->reasonDeath = $reasonDeath;
+
+        return $this;
+    }
+
+    public function getWhyFiche(): ?string
+    {
+        return $this->WhyFiche;
+    }
+
+    public function setWhyFiche(?string $WhyFiche): self
+    {
+        $this->WhyFiche = $WhyFiche;
+
+        return $this;
+    }
+
+    public function getBienfaits(): ?string
+    {
+        return $this->bienfaits;
+    }
+
+    public function setBienfaits(?string $bienfaits): self
+    {
+        $this->bienfaits = $bienfaits;
+
+        return $this;
     }
 }

@@ -25,6 +25,8 @@
 body{
     margin: 0;
     padding: 0;
+    color:  #616161;
+    font-family: sans-serif;
 }
 
 .container{
@@ -80,12 +82,12 @@ margin-bottom: 0;
 }
 
 .color-kaki-koin{
-    background-color: white;
+    background-color: #ebf2e3;
     padding-top: 10px;
     padding-bottom: 10px;
     /*margin-top: 18px;*/
     border-top: 1px solid #5f6c0a;
-    border-bottom: 1px solid #5f6c0a;
+    /*border-bottom: 1px solid #5f6c0a;*/
     height: 100px;
 }
 
@@ -113,12 +115,7 @@ margin-bottom: 0;
     background-color: #5f6c0a;
 }
 
-body {
-    font-family: sans-serif;
-    color: black;
-    /*font-size: 24px;*/
 
-}
 
 
 .container-koin{
@@ -131,7 +128,7 @@ body {
 #foot_principale{
     height: 450px;
     background-color: gainsboro;
-    margin-top: 100px;
+    margin-top: 200px;
 
 }
 
@@ -305,7 +302,7 @@ color: #395E1B;
 }
 
 
-#acces_wrap_absolute{
+#reseaux_wrap_absolute{
     position: fixed;
     top: 100px;
     right: 0;
@@ -313,15 +310,25 @@ color: #395E1B;
     height: 700px;
     background-color: #c9e430;
     border-left: none;
+    z-index: 2;
+}
+
+
+#reseaux_wrap_absolute ul{
+    margin: 0;
+    padding: 0;
 }
 
 
 
+
 .item_acces{
+    position: relative;
     height: 10%;
     border-bottom: 1px dashed #395E1B;
     text-align: center;
-    line-height: 5;
+    padding: 24%;
+    list-style-type: none;
 }
 
 .item_acces i {
@@ -329,8 +336,8 @@ color: #395E1B;
 }
 
 
-
-#reseaux_wrap_absolute{
+#acces_wrap_absolute
+{
     position: fixed;
     top: 100px;
     left: 0;
@@ -338,7 +345,16 @@ color: #395E1B;
     height: 700px;
     background-color: #c9e430;
     border-left: none;
+    z-index: 2;
 }
+
+#acces_wrap_absolute ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+
 
 .wrap_item_gestion .item_gestion{
     display: inline-block;
@@ -347,6 +363,118 @@ color: #395E1B;
     padding: 20px;
     margin-top: 20px;
     color: white;
+    margin-bottom: 20px;
+}
+
+.rond_usename_connect{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    left: 75%;
+    border-radius: 50%;
+    top: 14%;
+}
+
+#acces_wrap_absolute .item_acces .hover_item_access{
+    background-color: #c9e430;
+    visibility: hidden;
+    opacity: 0.1;
+    transition: opacity 1s;
+    color: #395E1B;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    width: max-content;
+    border-bottom: 1px solid #c9e430;
+    padding: 27%;
+}
+
+#acces_wrap_absolute .item_acces:hover .hover_item_access{
+ visibility: visible;
+ opacity: 1;
 }
 
 
+#reseaux_wrap_absolute .item_acces .hover_item_access{
+    background-color: #c9e430;
+    visibility: hidden;
+    opacity: 0.1;
+    transition: opacity 1s;
+    color: #395E1B;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    border-bottom: 1px solid #c9e430;
+    padding: 27%;
+    left: -289%;
+    width: 291%;
+}
+
+#reseaux_wrap_absolute .item_acces:hover .hover_item_access{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.koin_btn{
+    color: #395E1B;
+    background-color: white;
+    border: 1px solid #395E1B;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    text-decoration: none;
+    border-radius: 0;
+    margin-top: 2%;
+}
+
+
+
+.koin_btn:hover{
+    color: white;
+    background-color: #395E1B;
+    border: 1px solid #395E1B;
+    text-decoration: none;
+}
+
+.koin_btn:active{
+    color: white;
+    background-color: #395E1B;
+    border-color: #395E1B;
+    text-decoration: none;
+}
+
+form{
+    background: #ebf2e3;
+    padding: 5%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*.custom-file-label::after {*/
+
+/*    color: white;*/
+/*    content: "Choisir l'image";*/
+/*    background-color: #395E1B;*/
+/*}*/
+
+
+.custom-file-label{
+    display: none;
+}
+
+/*ARTCILE*/
+
+.custom-file-input {
+
+    opacity: 1;
+}

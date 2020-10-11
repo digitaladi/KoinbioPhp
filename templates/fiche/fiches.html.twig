@@ -8,18 +8,43 @@
 
 
 
+{#    <div class="wrap_item_gestion">#}
+{#        <a class="item_gestion" href="{{ path('fiches') }}">Plantes fruitières</a>#}
+
+{#        <a class="item_gestion" href="#">Plantes légumières</a>#}
+
+{#        <a class="item_gestion" href="#">Plantes médicinales</a>#}
+
+{#    </div>#}
 
 
-    <div class="wrap_item_gestion">
-        <a class="item_gestion" href="{{ path('fiches') }}">Plantes fruitières</a>
-
-        <a class="item_gestion" href="#">Plantes légumières</a>
-
-        <a class="item_gestion" href="#">Plantes médicinales</a>
 
 
+    {% for i in 0..5 %}
+        <div class="wrap_fiche">
+            <div class="img_side_fiche">
+                <div class="fiche_name"></div>
+                <div class="fiche_img">
+                    <img src="{{ asset('build/images/img5.jpg') }}" alt="">
+                </div>
 
-    </div>
+            </div>
+            <div class="infos_side_fiche">
+                <div class="infos_name">
+
+                </div>
+                <div class="infos_contain">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolorum esse est explicabo fugit in iusto laborum maiores modi non nulla numquam officiis qui quibusdam reprehenderit sapiente sequi, sint velit.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque doloribus exercitationem impedit omnis quidem similique? Aperiam at culpa dignissimos dolorum eligendi est ex illo, magnam, neque obcaecati odio officiis, totam?
+                    </p>
+                </div>
+            </div>
+            <div class="bottom_fiche"></div>
+
+        </div>
+
+    {% endfor  %}
 
 
 {% endblock %}

@@ -20,6 +20,7 @@ class Commentaire
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
+
     private $id;
 
     /**

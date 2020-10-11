@@ -3,43 +3,51 @@
 {#    <div class="col-4 wrap-logo"><a href="{{ path('index') }}"><img src="{{ asset('build/images/logo-koinbio.png') }}" alt=""></a></div>#}
 {#    <div class="col-4 wrap-search"><i class="fa fa-search fa-2x" aria-hidden="true"></i></div>#}
 </div>
-<div id="acces_wrap_absolute">
+<nav id="acces_wrap_absolute">
+
+    <ul>
+
+    <li class="item_acces"><a href="{{ path('index') }}"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Accueil</div></li>
+    <li class="item_acces"><a href="{{ path('info_site') }}"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> A propos de Koinbio </div></li>
 
 
+
+
+
+
+
+    <li class="item_acces"><a href="{{ path('articles') }}"><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Articles</div></li>
+    <li class="item_acces"><a href="{{ path('fiches') }}"><i class="fa fa-pagelines fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Fiches techniques de plantes</div></li>
+    <li class="item_acces"><a href=""><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Galerie</div></li>
 
 
     {% if is_granted('ROLE_USER') %}
-        <div class="item_acces"><a href="{{ path('compte_profil') }}"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a></div>
-        <div class="item_acces"><a href="{{ path('logout') }}"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></div>
-        <div class="item_acces"><a href="{{ path('user_rubriques') }}"><i class="fa fa-tasks fa-2x" aria-hidden="true"></i></a></div>
-    {% else %}
-            <div class="item_acces"><a href="{{ path('Registration_register') }}"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></a></div>
-            <div class="item_acces"><a href="{{ path('security_login') }}"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i></a></div>
+    <li class="item_acces" style="background-color: #395E1B;border-bottom: 1px dashed #c9e430; "><a href="{{ path('user_rubriques') }}"><i style="color:#c9e430;" class="fa fa-tasks fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Mes rubriques</div></li>
     {% endif %}
-
-
-
-
-    <div class="item_acces"><a href="{{ path('articles') }}"><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i></a></div>
-    <div class="item_acces"><a href="{{ path('fiches') }}"><i class="fa fa-pagelines fa-2x" aria-hidden="true"></i></a></div>
-    <div class="item_acces"><a href="{{ path('fiches') }}"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a></div>
-
-
-
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="item_acces"><a href="{{ path('access_admin') }}"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></a></div>
+        <li class="item_acces " style="background-color: #395E1B; "><a href="{{ path('access_admin') }}"><i style="color:#c9e430;" class="fa fa-cog fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Administration</div></li>
+    {% endif %}
+    </ul>
+</nav>
+{#{{ dump(app.user) }}#}
+
+<nav id="reseaux_wrap_absolute">
+    <ul>
+    {% if is_granted('ROLE_USER') %}
+
+    <li class="item_acces" style="background-color: #395E1B; border-bottom: 1px dashed #c9e430;padding: 5px;"><span class="rond_usename_connect"></span><a href="#" style="color: #c9e430;text-decoration: none;font-size: 40px; " >{{app.user.username|slice(0,1)}}</a><div class="hover_item_access"> Bienvenue <strong> {{app.user.username }}</strong> </div></li>
+        <li class="item_acces" style="background-color: #395E1B;border-bottom: 1px dashed #c9e430;"><a href="{{ path('compte_profil') }}"><i style="color: #c9e430;" class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Mon compte  </div></li>
+        <li class="item_acces" style="background-color: #395E1B;border-bottom: 1px dashed #c9e430;"><a href="{{ path('logout') }}"><i style="color: #c9e430;"  class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Se deconnecter  </div></li>
+        {% else %}
+            <li class="item_acces"><a href="{{ path('Registration_register') }}"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> S'inscrire  </div></li>
+            <li class="item_acces"><a href="{{ path('security_login') }}"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Se connecter  </div></li>
     {% endif %}
 
-</div>
-
-
-<div id="reseaux_wrap_absolute">
-    <div class="item_acces"><a href="{{ path('index') }}"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></div>
-    <div class="item_acces"><a href="{{ path('info_site') }}"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a></div>
-    <div class="item_acces"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></div>
-    <div class="item_acces"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></div>
-    <div class="item_acces"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></div>
-</div>
+    <li class="item_acces"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i><div class="hover_item_access"> Facebook  </div></li>
+    <li class="item_acces"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i><div class="hover_item_access"> Twitter  </div></li>
+    <li class="item_acces"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i><div class="hover_item_access"> Instagram  </div></li>
+    </ul>
+</nav>
 
 
 

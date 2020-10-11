@@ -73,7 +73,7 @@ class SecurityController extends AbstractController
             ])
 //            ->add('postal_code',NumberType::class)
 //            ->add('commune', TextType::class)
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, ['attr'=> ['class'=>'koin_btn btn']])
             ->getForm();
         $form->handleRequest($request);
 

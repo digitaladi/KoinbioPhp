@@ -19,10 +19,12 @@
 }
 .csslider1 {
     display: inline-block;
-    position: relative;
+    /*position: relative;*/
     /*max-width: 480px;*/
     width: 100%;
     /*margin-top: 10px;*/
+    position: absolute;
+    left: 0;
 }
 .csslider1 > .cs_anchor {
     display: none;
@@ -34,12 +36,13 @@
     line-height: 0;
     margin: 0 auto;
     padding: 0;
-
+    height: 700px;
     overflow: hidden;
     white-space: nowrap;
 }
 .csslider1 > ul > li.img img {
     width: 100%;
+    height: 700px;
 }
 .csslider1 > ul > li.img {
     font-size: 0pt;
@@ -481,6 +484,7 @@
     -ms-transition: none;
     -o-transition: none;
     transition: none;
+    height: 700px;
 
 }
 
