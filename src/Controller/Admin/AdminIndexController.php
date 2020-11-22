@@ -26,6 +26,10 @@ class AdminIndexController extends AbstractController
      */
     public function AccessDashboardAdmin(){
 
+        // Si le visiteur est déjà identifié, on le redirige vers l'accueil
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
         return $this->render('index/access_admin.html.twig');
 
     }
@@ -34,7 +38,10 @@ class AdminIndexController extends AbstractController
      * @Route("/user/rubriques", name="user_rubriques")
      */
     public function AccessRubriqueUser(){
-
+        // Si le visiteur est déjà identifié, on le redirige vers l'accueil
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
         return $this->render('index/rubriques.html.twig');
 
     }

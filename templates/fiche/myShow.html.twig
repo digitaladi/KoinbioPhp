@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+    <div class="wrap_title_koinbio"><h1 class="title_koinbio">Fiche de plante {{ fiche.plantName }}</h1></div>
+
+    <div class="wrap_fiche_one">
+        <div class="img_side_fiche_one">
+
+            {#                {{ fiche.plantName }}#}
+
+
+            <img src="{{ asset('uploads/fiches/'~ fiche.image ) }}" alt="">
+
+            {#            <div class="bottom_fiche_one">#}
+            {#                <p class="fiche_created">Fiche crée le {{ fiche.createAt|date('d/m/Y')}} </p>#}
+            {#                <div class="wrap_reseaux_fiche">#}
+            {#                    <i class="fa fa-facebook-square fa-2x"></i>#}
+            {#                    <i class="fa fa-twitter-square fa-2x"></i>#}
+            {#                    <i class="fa fa-instagram fa-2x"></i>#}
+            {#                </div>#}
+            {#                #}{#            <p class="see_fiche"><a href="{{ path('fiche_show', {'id': fiche.id }) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></p>#}
+            {#            </div>#}
+        </div>
+        <div class="infos_side_fiche_one">
+
+
+
+            <div class="infos_contain">
+                {#                <div>#}
+                <p class="list_title_fiche">Le nom de la plante</p>
+                <p class="list_intitule_fiche"> {% if fiche.plantName is not null %}{{ fiche.plantName }} {% else %}  <i>Non renseigné</i> {% endif %}</p>
+                <p class="list_title_fiche">Type de plante</p>
+                <p class="list_intitule_fiche">{% if fiche.typePlante is not null %} {{ fiche.typePlante.name }} {% else %} <i> Non renseigné </i>{% endif %}</p>
+                <p class="list_title_fiche">Catégorie de la plante</p>
+                <p class="list_intitule_fiche"> {% if fiche.categorieFiche is not null %} {{ fiche.categorieFiche.name }} {% else %} <i> Non renseigné </i>{% endif %}</p>
+                <p class="list_title_fiche">Date de création ou d'achat</p>
+                <p class="list_intitule_fiche">{% if fiche.dateBirthOrBuy is not null %} Le {{ fiche.dateBirthOrBuy|date('d/m/Y') }} {% else %}  <i>Non renseigné</i> {% endif %}</p>
+                <p class="list_title_fiche">La taille de la plante </p>
+                <p class="list_intitule_fiche">{% if fiche.taille is not null %} {{ fiche.taille }} cm  {% else %} <i> Non renseigné</i> {% endif %}</p>
+                <p class="list_title_fiche">La raison du  choix de cette plante</p>
+                <p class="list_intitule_fiche">{% if fiche.WhyFiche is not null %} {{ fiche.WhyFiche }} {% else %}  <i>Non renseigné </i>{% endif %} </p>
+                <p class="list_title_fiche">Les bienfaits de cette plante</p>
+                <p class="list_intitule_fiche">{% if fiche.bienfaits is not null %} {{ fiche.bienfaits }} {% else %}  <i>Non renseigné</i> {% endif %} </p>
+
+                {#                </div>#}
+            </div>
+            {#        </div>#}
+
+            <div id="wrap_command_fiche_show">
+                <a href=""> Télécharger <i class="fa fa-upload" aria-hidden="true"></i></a> <br>
+                <a href="{{ path('my_fiche_edit', {'id': fiche.id }) }}">  Modifier  <i class="fa fa-pencil-square" aria-hidden="true"></i></a><br>
+
+                <a href="{{ path('my_fiche_confirmation_delete', { 'id' : fiche.id }) }}">  Supprimer  <i class="fa fa-trash" aria-hidden="true"></i> </a><br>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="wrap_comments">
+        <div class="no_comment"><a href="">Les commentaires liés à cette plante</a></div>
+        {% for Commentaire in listeCommentairesFiche %}
+
+            <div class="wrap_comment">
+                <div class="auteur_comment">
+                    <span class="comment_date"> Le {{ Commentaire.createdAt|date('d/m/Y à H:i:s') }}</span>
+                    par  <span class="auteur_comment_user"> {{ Commentaire.user.username }}</span>
+                </div>
+                <div class="true_comment">{{ Commentaire.comment }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="#" onclick="window.history.back();" class="koin_btn" role="button">Retour</a>
+
+{% endblock %}

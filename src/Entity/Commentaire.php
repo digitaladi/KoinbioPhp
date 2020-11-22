@@ -89,7 +89,7 @@ class Commentaire
      */
     public function setUser($user): void
     {
-        $this->user_id = $user;
+        $this->user = $user;
     }
 
 

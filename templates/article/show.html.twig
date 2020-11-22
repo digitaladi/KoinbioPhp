@@ -1,0 +1,37 @@
+{% extends'base.html.twig' %}
+
+
+{% block body %}
+    <div class="wrap_title_koinbio"><h1 class="title_koinbio">Show article</h1></div>
+
+    {#{{ dump(article) }}#}
+
+    <div class="wrap_article_one">
+
+
+        <div class="wrap_article_twofirstbloc">
+        <div class="wrap_article_image_one">
+            <img src="{{ asset('uploads/articles/'~ article.image ) }}" alt="">
+
+        </div>
+        <div class="wrap_article_title_one">
+            <div class="article_title_one">    {{ article.titre }} </div>
+
+            <div class="wrap_article_side_one">
+
+                <a href="#">Auteur : {{ article.auteur }}</a>
+                <a href="">Crée le    {{ article.createdAt|date('d/m/Y') }}</a>
+
+
+                <a href="#">Source : {{ article.source }}</a>
+            </div>
+        </div>
+
+        </div>
+
+
+        <div class="wrap_article_corp_one">{{ article.corp }}</div>
+    </div>
+
+
+{% endblock %}

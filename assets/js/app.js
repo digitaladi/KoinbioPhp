@@ -49,7 +49,8 @@ require('../css/fiche.css');
 require('../css/article.css');
 
 
-// require('../js/utilJS/test');
+require('./utilJS/composants');
+
 
 
 $(document).ready(function() {

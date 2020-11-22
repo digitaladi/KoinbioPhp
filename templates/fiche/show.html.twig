@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <h1 class="title_koinbio">Fiche de plante {{ fiche.plantName }}</h1>
+    <div class="wrap_title_koinbio">    <h1 class="title_koinbio">Fiche de plante {{ fiche.plantName }}</h1></div>
 
     <div class="wrap_fiche_one">
         <div class="img_side_fiche_one">
@@ -54,5 +54,34 @@
 
     </div>
 
+
+
+
+
     <a href="#" onclick="window.history.back();" class="koin_btn" role="button">Retour</a>
+
+
+
+    <div class="wrap_form_comment">
+        {% if is_granted('ROLE_USER') %}
+{#            {{ dump(listeCommentairesFiche) }}#}
+    {{ form(form_comment) }}
+
+        {% else %}
+        <div class="no_comment"><a href="{{ path('security_login') }}">Connecter-vous pour Commenter</a></div>
+        {% endif %}
+{#        {% if is_granted('ROLE_USER') %}#}
+        {% for Commentaire in listeCommentairesFiche %}
+            <div class="wrap_comment">
+                <div class="auteur_comment">
+                    <span class="comment_date"> Le {{ Commentaire.createdAt|date('d/m/Y à H:i:s') }}</span>
+                    par  <span class="auteur_comment_user"> {{ Commentaire.user.username }}</span>
+                </div>
+                <div class="true_comment">{{ Commentaire.comment }}</div>
+            </div>
+        {% endfor %}
+{#        {% endif %}#}
+    </div>
+
+
 {% endblock %}

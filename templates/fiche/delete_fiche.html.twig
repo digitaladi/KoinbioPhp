@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="wrap_title_koinbio"> <h1 class="title_koinbio">Confirmation</h1></div>
+
+    <div class="container">
+        <form>
+            <div class="modal-body">Voulez-vous supprimer ce fiche ? </div>
+            <div class="modal-footer">
+                <a class="koin_btn" href="{{ path('my_fiche_delete', { 'id':fiche.id }) }}"> Confirmer</a>
+                <a href=javascript:history.go(-1) class="btn" >Annuler</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

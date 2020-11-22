@@ -28,6 +28,9 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils)
     {
 
+
+
+
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUserName = $authenticationUtils->getLastUsername();
 
@@ -50,6 +53,13 @@ class SecurityController extends AbstractController
      * @Route("/register", name="Registration_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $encoder){
+
+
+        // Si le visiteur est déjà identifié, on le redirige vers l'accueil
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
+
         $user = new User();
         $user->setRoles(['ROLE_USER']);
 //        $date = new \DateTime();
@@ -60,20 +70,22 @@ class SecurityController extends AbstractController
 //        $form = $this->createForm(UserType::class, $user);
         $form = $this->createFormBuilder($user)
 
-            ->add('username',TextType::class)
-//            ->add('email', EmailType::class)
+            ->add('username',TextType::class, ['label' => 'Votre pseudo'])
+            ->add('email', EmailType::class, ['label' => 'Votre mail'])
 //            ->add('password', PasswordType::class)
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'label'=> 'Votre mot de passe',
+//                'placeholder'=> 'Votre mot de passe',
                 'invalid_message' => 'The password fields must match.',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+                'first_options'  => ['label' => 'Votre mot de passe'],
+                'second_options' => ['label' => 'Confirmer votre mot de passe'],
             ])
 //            ->add('postal_code',NumberType::class)
 //            ->add('commune', TextType::class)
-            ->add('submit', SubmitType::class, ['attr'=> ['class'=>'koin_btn btn']])
+            ->add('submit', SubmitType::class, ['attr'=> ['class'=>'koin_btn btn'], 'label'=> 'S\'inscrire',])
             ->getForm();
         $form->handleRequest($request);
 

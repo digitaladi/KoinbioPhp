@@ -27,7 +27,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, nullable=true)
+     * @ORM\Column(type="string", length=180, nullable=false, unique=true)
      */
     private $email;
 
@@ -92,13 +92,9 @@ class User implements UserInterface
      */
     private $commentaires;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Fiche", inversedBy="users")
-     */
-    private $fiche;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false, unique=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $username;
 
@@ -117,6 +113,11 @@ class User implements UserInterface
      */
     private $updated_at;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Fiche::class, mappedBy="user")
+     */
+    private $fiches;
+
 
 
 
@@ -128,8 +129,8 @@ class User implements UserInterface
     {
 
         $this->commentaires = new ArrayCollection();
-//        $this->id_fiche = new ArrayCollection();
-        $this->fiche = new ArrayCollection();
+        $this->fiches = new ArrayCollection();
+
     }
 
     public function getId()
@@ -340,31 +341,7 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Fiche[]
-     */
-    public function getFiche()
-    {
-        return $this->fiche;
-    }
 
-    public function addFiche(Fiche $fiche)
-    {
-        if (!$this->fiche->contains($fiche)) {
-            $this->fiche[] = $fiche;
-        }
-
-        return $this;
-    }
-
-    public function removeFiche(Fiche $fiche)
-    {
-        if ($this->fiche->contains($fiche)) {
-            $this->fiche->removeElement($fiche);
-        }
-
-        return $this;
-    }
 
     public function setUsername($username)
     {
@@ -405,6 +382,37 @@ class User implements UserInterface
     public function setUpdatedAt(\DateTimeInterface $updated_at)
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fiche[]
+     */
+    public function getFiches(): Collection
+    {
+        return $this->fiches;
+    }
+
+    public function addFich(Fiche $fich): self
+    {
+        if (!$this->fiches->contains($fich)) {
+            $this->fiches[] = $fich;
+            $fich->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFich(Fiche $fich): self
+    {
+        if ($this->fiches->contains($fich)) {
+            $this->fiches->removeElement($fich);
+            // set the owning side to null (unless already changed)
+            if ($fich->getUser() === $this) {
+                $fich->setUser(null);
+            }
+        }
 
         return $this;
     }

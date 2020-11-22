@@ -8,15 +8,97 @@
 
 
 
-            {# ICI LE SLIDER GALLERIE DE LA PAGE D ACCUEIL #}
-            {% include 'blocks/sliderGallery.html.twig' %}
+    {# ICI LE SLIDER GALLERIE DE LA PAGE D ACCUEIL #}
+    {% include 'blocks/sliderGallery.html.twig' %}
 
 
 
-            <div class="sect_koinbio one"></div>
-            <div class="sect_koinbio two"></div>
-            <div class="sect_koinbio three"></div>
-            <div class="sect_koinbio four"></div>
+    <div class="sect_koinbio one"></div>
+    <div class="sect_koinbio two">
+        <div class="wrap_two">
+            <div class="two_sec">
+                <div class="wrap_two_img">
+                    <img src="{{ asset('build/images/fiche_identite.png') }}" alt="">
+                </div>
+                <p>Créer des fiches de vos plantes</p>
+            </div>
+            <div class="two_sec">
+                <div class="wrap_two_img">
+                    <img src="{{ asset('build/images/carte_identite.png') }}" alt="">
+                </div>
+                <p>Télécharger la carte d'identité fictif de votre plante</p>
+            </div>
+            <div class="two_sec">
+                <div class="wrap_two_img">
+                    <img src="{{ asset('build/images/partager_fiche.png') }}" alt="">
+                </div>
+                <p>Partager vos fiches</p></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="sect_koinbio four">
+        <div class="wrap_img_four">
+            <img src="{{ asset('build/images/big_img_index.jpg') }}" alt="">
+        </div>
+        <div class="four_contain_border">
+            <div class="bg_text">
+                <div class="wrap_text_four">
+                    <h3>A propos de Koinbio</h3>
+                    <div class="text_four">
+                        <p>Une fois inscris, les utilisateurs de Koinbio peuvent remplir
+                            un formulaire avec les informations de leurs plantes. Ainsi chaque plante aura sa fiche
+                            et une <a href="">carte d'identité</a> (inspirée de celle des humains) .
+                            Enfin en cas de la mort de la plante un certificat de mort lui est attribué.
+                        </p>
+                        <p>Les plantes peuvent être de type herbacées, arbustes, arbres, grimpantes ou bulbeuses.
+                            On privilégiera les plantes fruitières et légumières mais les catégories décoratives et
+                            médicinales sont les bienvenus.
+                        </p>
+                        <p>Au delà de l'aspect pratique, Koinbio permet aux utilisateurs de s'inspirer  entre eux en
+                            partageant  leurs expériences botaniques et les informations de leurs plantes. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sect_koinbio three">
+        <div class="img_sec_three_top">
+            <div class="wrap_img ">
+                <div class="fiche_name_index">Plantes décoratifs</div>
+                <img src="{{ asset('build/images/decoratif_web.jpg') }}" alt="">
+            </div>
+            <div class="wrap_img ">
+                <div class="fiche_name_index">Plantes médicinales</div>
+                <img src="{{ asset('build/images/medicinale_web.jpg') }}" alt="">
+            </div>
+            <div class="absolute_background"></div>
+        </div>
+        <div class="img_sec_three_bottom">
+            <div class="wrap_img ">
+                <div class="fiche_name_index">Plantes légumières</div>
+                <img src="{{ asset('build/images/legumiere_web.jpg') }}" alt="">
+            </div>
+            <div class="wrap_img">
+                <div class="fiche_name_index">Plantes fruitières</div>
+                <img src="{{ asset('build/images/fruitiere_web.jpg') }}" alt="">
+            </div>
+            <div class="absolute_background"></div>
+        </div>
+    </div>
 
 
 

@@ -147,13 +147,10 @@ class Fiche implements \Serializable
      */
     private $categorieFiche;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="fiche")
-     */
-    private $users;
+
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="fiche")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commentaire", mappedBy="fiche",cascade={"persist", "remove"})
      */
     private $commentaires;
 
@@ -199,13 +196,18 @@ class Fiche implements \Serializable
      */
     private $bienfaits;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="fiches")
+     */
+    private $user;
+
 
 
 
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+
         $this->commentaires = new ArrayCollection();
         $this->updatedAt = new \DateTime();
     }
@@ -450,33 +452,7 @@ class Fiche implements \Serializable
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
 
-    public function addUser(User $user)
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addFiche($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user)
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            $user->removeFiche($this);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Commentaire[]
@@ -486,23 +462,23 @@ class Fiche implements \Serializable
         return $this->commentaires;
     }
 
-    public function addCommentaire(Commentaire $commentaire): self
+    public function addCommentaire(Commentaire $commentaire)
     {
         if (!$this->commentaires->contains($commentaire)) {
             $this->commentaires[] = $commentaire;
-            $commentaire->setFicheId($this);
+            $commentaire->setFiche($this);
         }
 
         return $this;
     }
 
-    public function removeCommentaire(Commentaire $commentaire): self
+    public function removeCommentaire(Commentaire $commentaire)
     {
         if ($this->commentaires->contains($commentaire)) {
             $this->commentaires->removeElement($commentaire);
             // set the owning side to null (unless already changed)
-            if ($commentaire->getFicheId() === $this) {
-                $commentaire->setFicheId(null);
+            if ($commentaire->getFiche() === $this) {
+                $commentaire->setFiche(null);
             }
         }
 
@@ -642,6 +618,18 @@ class Fiche implements \Serializable
     public function setBienfaits(?string $bienfaits): self
     {
         $this->bienfaits = $bienfaits;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

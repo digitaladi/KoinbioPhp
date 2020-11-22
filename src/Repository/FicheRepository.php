@@ -52,7 +52,7 @@ class FicheRepository extends ServiceEntityRepository
     public function getFicheByUser($user){
         return $this->createQueryBuilder('f')
 //            ->select('user')
-            ->innerJoin('f.users', 'u', 'WITH' , 'u.id = :id')
+            ->innerJoin('f.user', 'u', 'WITH' , 'u.id = :id')
             ->setParameter('id', $user)
 
 //            ->select('f.plant_name')

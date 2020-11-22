@@ -50,6 +50,11 @@ class AdminRegistrationController extends AbstractController
      */
 
     public function register(Request $request, UserPasswordEncoderInterface $encoder){
+
+        // Si le visiteur est déjà identifié, on le redirige vers l'accueil
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
         $user = new User();
 //        dd($user);
         $em = $this->getDoctrine()->getManager();
@@ -70,6 +75,7 @@ class AdminRegistrationController extends AbstractController
         }
 
 
+
         return $this->render('security/admin/register.html.twig', [
             "form" => $form->createView()
         ]);
@@ -85,6 +91,10 @@ class AdminRegistrationController extends AbstractController
      */
     public function delete($id)
     {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
+
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
         $em->remove($user);
@@ -100,6 +110,11 @@ class AdminRegistrationController extends AbstractController
      * @Route("/admin/show/user/{id}", name="admin_show_user")
      */
     public function show($id){
+
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
+
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
         return $this->render('security/admin/show.html.twig', ['user' => $user]);
@@ -114,6 +129,10 @@ class AdminRegistrationController extends AbstractController
      * @Route("/admin/edit/user/{id}", name="admin_edit_user")
      */
     public function edit($id, Request $request){
+
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
 
         $em = $this->getDoctrine()->getManager();
         $user =  $em->getRepository(User::class)->find($id);
@@ -141,3 +160,4 @@ class AdminRegistrationController extends AbstractController
 
 
 }
+

@@ -4,7 +4,7 @@
 {% block title %}Fiches techniques de plantes{% endblock %}
 
 {% block body %}
-    <h1 class="title_koinbio">Fiches techniques de plantes</h1>
+    <div class="wrap_title_koinbio"> <h1 class="title_koinbio">Fiches techniques de plantes</h1></div>
 
 
 
@@ -20,31 +20,49 @@
 
 
 
-    {% for i in 0..5 %}
+    {% for fiche in fiches %}
+{#                   {{ dump(fiche.user.username) }}#}
         <div class="wrap_fiche">
             <div class="img_side_fiche">
-                <div class="fiche_name"></div>
+                <div class="fiche_name">{{ fiche.plantName }}</div>
                 <div class="fiche_img">
-                    <img src="{{ asset('build/images/img5.jpg') }}" alt="">
+                    <img src="{{ asset('uploads/fiches/'~ fiche.image ) }}" alt="">
                 </div>
 
             </div>
             <div class="infos_side_fiche">
                 <div class="infos_name">
-
+                    Infos supplémentaires
                 </div>
-                <div class="infos_contain">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolorum esse est explicabo fugit in iusto laborum maiores modi non nulla numquam officiis qui quibusdam reprehenderit sapiente sequi, sint velit.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque doloribus exercitationem impedit omnis quidem similique? Aperiam at culpa dignissimos dolorum eligendi est ex illo, magnam, neque obcaecati odio officiis, totam?
-                    </p>
+                <div class="infos_contain_all">
+                    {#                <div>#}
+                    <p class="list_title_fiche">Le nom de la plante</p>
+                    <p class="list_intitule_fiche"> {% if fiche.plantName is not null %}{{ fiche.plantName }} {% else %}  <i>Non renseigné</i> {% endif %}</p>
+                    <p class="list_title_fiche">Type de plante</p>
+                    <p class="list_intitule_fiche">{% if fiche.typePlante is not null %} {{ fiche.typePlante.name }} {% else %} <i> Non renseigné </i>{% endif %}</p>
+                    <p class="list_title_fiche">Catégorie de la plante</p>
+                    <p class="list_intitule_fiche"> {% if fiche.categorieFiche is not null %} {{ fiche.categorieFiche.name }} {% else %} <i> Non renseigné </i>{% endif %}</p>
+                    <p class="list_title_fiche">Date de création ou d'achat</p>
+                    <p class="list_intitule_fiche">{% if fiche.dateBirthOrBuy is not null %} Le {{ fiche.dateBirthOrBuy|date('d/m/Y') }} {% else %}  <i>Non renseigné</i> {% endif %}</p>
+                    <p class="list_title_fiche">La taille de la plante </p>
+                    <p class="list_intitule_fiche">{% if fiche.taille is not null %} {{ fiche.taille }} cm  {% else %} <i> Non renseigné</i> {% endif %}</p>
+                    <p class="list_title_fiche">Les raisons du  choix de cette plante</p>
+                    <p class="list_intitule_fiche">{% if fiche.WhyFiche is not null %} {{ fiche.WhyFiche }} {% else %}  <i>Non renseigné </i>{% endif %} </p>
+                    <p class="list_title_fiche">Les bienfaits de cette plante</p>
+                    <p class="list_intitule_fiche">{% if fiche.bienfaits is not null %} {{ fiche.bienfaits }} {% else %}  <i>Non renseigné</i> {% endif %} </p>
+
+                    {#                </div>#}
                 </div>
             </div>
-            <div class="bottom_fiche"></div>
+            <div class="bottom_fiche">
+                <p class="fiche_created">Fiche crée le {{ fiche.createAt|date('d/m/Y')}} par <strong>{{ fiche.user.username }} </strong></p>
+                <p class="see_fiche"><a href="{{ path('fiche_show', {'id': fiche.id }) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></p>
+
+
+            </div>
 
         </div>
-
-    {% endfor  %}
+    {% endfor %}
 
 
 {% endblock %}

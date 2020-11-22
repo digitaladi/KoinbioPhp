@@ -1,3 +1,8 @@
+
+<div id="nav_float">
+    <div class="wrap-logo"><a href="{{ path('index') }}"><img src="{{ asset('build/images/logo-koinbio.png') }}" alt=""></a></div>
+
+</div>
 <div class="big-header-koinbio">
 {#    <div class="col-4 wrap-hambuger"><i class="fa  fa-bars fa-2x" aria-hidden="true"><span> Menu</span> </i></div>#}
 {#    <div class="col-4 wrap-logo"><a href="{{ path('index') }}"><img src="{{ asset('build/images/logo-koinbio.png') }}" alt=""></a></div>#}
@@ -22,10 +27,10 @@
 
 
     {% if is_granted('ROLE_USER') %}
-    <li class="item_acces" style="background-color: #395E1B;border-bottom: 1px dashed #c9e430; "><a href="{{ path('user_rubriques') }}"><i style="color:#c9e430;" class="fa fa-tasks fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Mes rubriques</div></li>
+    <li class="item_acces" ><a href="{{ path('user_rubriques') }}"><i class="fa fa-tasks fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Mes rubriques</div></li>
     {% endif %}
     {% if is_granted('ROLE_ADMIN') %}
-        <li class="item_acces " style="background-color: #395E1B; "><a href="{{ path('access_admin') }}"><i style="color:#c9e430;" class="fa fa-cog fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Administration</div></li>
+        <li class="item_acces " ><a href="{{ path('access_admin') }}"><i  class="fa fa-cog fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Administration</div></li>
     {% endif %}
     </ul>
 </nav>
@@ -33,11 +38,12 @@
 
 <nav id="reseaux_wrap_absolute">
     <ul>
+
     {% if is_granted('ROLE_USER') %}
 
-    <li class="item_acces" style="background-color: #395E1B; border-bottom: 1px dashed #c9e430;padding: 5px;"><span class="rond_usename_connect"></span><a href="#" style="color: #c9e430;text-decoration: none;font-size: 40px; " >{{app.user.username|slice(0,1)}}</a><div class="hover_item_access"> Bienvenue <strong> {{app.user.username }}</strong> </div></li>
-        <li class="item_acces" style="background-color: #395E1B;border-bottom: 1px dashed #c9e430;"><a href="{{ path('compte_profil') }}"><i style="color: #c9e430;" class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Mon compte  </div></li>
-        <li class="item_acces" style="background-color: #395E1B;border-bottom: 1px dashed #c9e430;"><a href="{{ path('logout') }}"><i style="color: #c9e430;"  class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Se deconnecter  </div></li>
+    <li class="item_acces" style="padding: 5px;"><span class="rond_usename_connect"></span><a href="#"  class="class_css_username" >{{app.user.username|slice(0,1)}}</a><div class="hover_item_access"> Bienvenue <strong> {{app.user.username }}</strong> </div></li>
+        <li class="item_acces" ><a href="{{ path('compte_profil') }}"><i  class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Mon compte  </div></li>
+        <li class="item_acces" ><a href="{{ path('logout') }}"><i  class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Se deconnecter  </div></li>
         {% else %}
             <li class="item_acces"><a href="{{ path('Registration_register') }}"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> S'inscrire  </div></li>
             <li class="item_acces"><a href="{{ path('security_login') }}"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Se connecter  </div></li>

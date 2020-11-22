@@ -18,5 +18,11 @@ class IndexController extends AbstractController
     }
 
 
+    /**
+     * @Route("/mentionslegales", name="mentions_legales")
+     */
+    public function mentionsLegalesAction(){
+        return $this->render('index/mentionsLegales.html.twig');
+    }
 
 }
