@@ -10,7 +10,7 @@
 
 
 
-require('../css/app.scss');
+//require('../css/app.scss');
 require('../fontawesome/css/font-awesome.min.css');
 require('../fonts/Ink Free.eot');
 require('../fonts/Ink Free.otf');
@@ -42,7 +42,7 @@ require('bootstrap');
 // or you can include specific pieces
 // require('bootstrap/js/dist/tooltip');
 // require('bootstrap/js/dist/popover');
-
+require('../css/app.scss');
 require('../css/style.css');
 require('../css/slide.css');
 require('../css/fiche.css');

@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
- * @UniqueEntity("username")
+ * @UniqueEntity("email")
  */
 
 class User implements UserInterface
