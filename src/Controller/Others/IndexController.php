@@ -25,4 +25,34 @@ class IndexController extends AbstractController
         return $this->render('index/mentionsLegales.html.twig');
     }
 
+
+    /**
+     * @Route("/galerie", name="galerie")
+     */
+    public function galerie(){
+
+        return $this->render('index/galerie.html.twig');
+
+    }
+
+    /**
+     * @Route("/statistiques", name="statistiques")
+     */
+    public function statistiques(){
+
+        return $this->render('index/statistiques.html.twig');
+
+    }
+
+    /**
+     * @Route("/score", name="score")
+     */
+    public function score(){
+
+        return $this->render('index/score.html.twig');
+
+    }
+
+
+
 }

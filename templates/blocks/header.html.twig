@@ -21,7 +21,7 @@
 
         <li class="item_acces"><a href="{{ path('articles') }}"><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Articles</div></li>
         <li class="item_acces"><a href="{{ path('fiches') }}"><i class="fa fa-pagelines fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Fiches techniques de plantes</div></li>
-        <li class="item_acces"><a href=""><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Galerie</div></li>
+        <li class="item_acces"><a href="{{ path('galerie') }}"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Galerie</div></li>
 
 
         {% if is_granted('ROLE_USER') %}
@@ -73,7 +73,7 @@
 
     <li class="item_acces"><a href="{{ path('articles') }}"><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Articles</div></li>
     <li class="item_acces"><a href="{{ path('fiches') }}"><i class="fa fa-pagelines fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Fiches techniques de plantes</div></li>
-    <li class="item_acces"><a href=""><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Galerie</div></li>
+    <li class="item_acces"><a href="{{ path('galerie') }}"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a><div class="hover_item_access"> Galerie</div></li>
 
 
     {% if is_granted('ROLE_USER') %}

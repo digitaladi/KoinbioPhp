@@ -1,13 +1,25 @@
 
+
+
+{% if is_granted('ROLE_USER') %}
 <div class="wrap_accroche">
     <div class="wrap-inner">
-        <h1>Bienvenue sur KoinBio</h1>
-        <p>Faites parler vos plantes en les mettant en  lumière
+        <h1 style="background-color: #395E1B; color: #c9e430">Bienvenue {{app.user.username }}</h1>
+        <p>Vous pouvez commencer à créer des fiches de vos plantes
 
         </p>
-        <a href="{{ path('Registration_register') }}">S'inscrire</a>
+        <a href="{{ path('user_rubriques') }}">Mes Rubriques</a>
     </div>
+{% else %}
+    <div class="wrap_accroche">
+        <div class="wrap-inner">
+            <h1>Bienvenue sur KoinBio</h1>
+            <p>Faites parler vos plantes en les mettant en  lumière
 
+            </p>
+            <a href="{{ path('Registration_register') }}">S'inscrire</a>
+        </div>
+    {% endif %}
 
 </div>
 
