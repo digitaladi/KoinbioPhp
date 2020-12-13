@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage  des articles{% endblock %}
+
+{% block body %}
+    <div class="wrap_title_koinbio"> <h1 class="title_koinbio">Affichage  des articles</h1></div>
+    <button type="button" class="btn btn-success btn-xs "><a href="{{ path('admin_article_add') }}">Ajouter un article</a></button>
+
+
+    <br><br>
+    <table class="table">
+
+        <tr>
+            <th>id</th>
+            <th>Titre</th>
+            <th>Auteur </th>
+            <th>Voir </th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.auteur }}</td>
+                <td><p><a href="{{ path('admin_article_show', {"id":article.id}) }}">Voir</a></p></td>
+                <td> <p>   <a href="{{ path('admin_article_edit',{ 'id': article.id }) }}">Editer</a></p></td>
+                <td><p><a onclick="return confirm('Etes vous supprimer cet article?');" href="{{ path('admin_article_delete',{ "id": article.id }) }}">Supprimer</a></p></td>
+            </tr>
+
+
+
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

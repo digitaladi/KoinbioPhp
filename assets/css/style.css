@@ -29,6 +29,49 @@ body{
     font-family: sans-serif;
 }
 
+.wrap_compte{
+    width: 50%;
+    margin: 0 auto;
+    clear: both;
+    margin-bottom: 50px;
+}
+
+.wrap_compte h2 {
+    font-size: 23px;
+    color: #395E1B;
+    font-weight: bold;
+    font-family: 'Ink Free', serif ;
+}
+
+.wrap_compte h2 span{
+    display: inline-block;
+    float: right;
+}
+
+.wrap_compte a{
+    color: #395E1B;
+    cursor: pointer;
+}
+
+/*.compte_item p:first-child{*/
+/*    margin-left: 5px;*/
+/*    font-weight: bold;*/
+/*    background-color: #ebf2e3;*/
+/*    padding: 5px;*/
+/*}*/
+
+.compte_item p:last-child{
+    width: max-content;
+    font-weight: normal;
+    background-color: #ebf2e3;
+    padding: 5px;
+    color: #395E1B;
+}
+
+.wrap_connect{
+    display: none;
+}
+
 #nav_float{
     background-color: white;
     position: fixed;
@@ -66,10 +109,7 @@ margin-bottom: 0;
 
 }
 
-.big-header-koinbio div{
-    display: inline-block;
-    width: 33%;
-}
+
 
 .title_koinbio{
     font-family: 'Ink Free', serif ;
@@ -103,9 +143,8 @@ margin-bottom: 0;
 }
 
 
-.wrap-hambuger span {
-    color: #395E1B;
-    font-family: 'Ink Free', serif ;
+.wrap-hambuger {
+display: none;
 }
 
 .color-kaki-koin{
@@ -155,7 +194,7 @@ margin-bottom: 0;
 #foot_principale{
     height: 350px;
     background-color: gainsboro;
-    margin-top: 500px;
+    margin-top: 100px;
     clear: both;
     float: left;
     width: 100%;
@@ -164,7 +203,7 @@ margin-bottom: 0;
 
 .class_css_username{
     text-decoration: none;
-    font-size: 45px;
+    font-size: 39px;
     color: #395E1B;
     font-weight: bold;
 }
@@ -346,7 +385,7 @@ color: #395E1B;
     top: 100px;
     right: 0;
     width: 3.9%;
-    height: 700px;
+    height: 494px;
     background-color: #c9e430;
     border-left: none;
     z-index: 2;
@@ -381,7 +420,7 @@ color: #395E1B;
     top: 100px;
     left: 0;
     width: 3.9%;
-    height: 700px;
+    height: 494px;
     background-color: #c9e430;
     border-left: none;
     z-index: 2;
@@ -405,15 +444,7 @@ color: #395E1B;
     margin-bottom: 20px;
 }
 
-.rond_usename_connect{
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    left: 75%;
-    border-radius: 50%;
-    top: 14%;
-}
+
 
 #acces_wrap_absolute .item_acces .hover_item_access{
     background-color: #c9e430;
@@ -657,7 +688,7 @@ margin-top: 10%;
 .wrap_img_four img{
     width: 100%;
     height: -webkit-fill-available;
-}
+}0
 
 .wrap_two{
     margin: 0 auto;
@@ -745,7 +776,555 @@ margin-left: 10px;
     cursor: pointer;
 }
 
+#responsive_wrap_nav{
+    display: none;
+}
+
+/**********************************************************************/
+/**********************************************************************/
+/*********************** RESPONSIVE TABLETTE **************************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+
+    /*body{*/
+    /*    background-color: red;*/
+    /*}*/
+
+
+    .wrap_connect {
+        display: block;
+        position: absolute;
+        right: -1px;
+        color: #c9e430;
+        width: 50px;
+        height: 50px;
+        top: 3%;
+    }
+
+    .wrap_connect a{
+text-decoration: none;
+        color: #c9e430;
+    }
+
+
+    .wrap-hambuger {
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 3%;
+        color: #c9e430;
+        left: 1%;
+    }
+
+
+    #acces_wrap_absolute, #reseaux_wrap_absolute {
+    display:none;
+    }
+
+    .one {
+        height: 100px;
+    }
+
+    .two .two_sec {
+        width: 26%;
+        margin-left: 5.5%;
+        padding: 8px;
+    }
+
+    .two {
+        border: none;
+        padding: 10px;
+        margin-bottom: 200px;
+    }
+
+    .wrap_two_img {
+        height: 150px;
+        width: 150px;
+
+    }
+
+    .two .two_sec p {
+        margin-top: 10%;
+        font-size: 15px;
+    }
+
+
+    .four {
+        /* background-color: crimson; */
+        height: auto;
+        margin-bottom: 300px;
+    }
+
+    .wrap_img_four img {
+        width: 100%;
+        height: auto;
+    }
+
+    .wrap_text_four {
+        padding: 6%;
+        font-size: 14px;
+    }
+
+
+    .img_sec_three_top .wrap_img .fiche_name_index {
+        left: 20%;
+        width: 60%;
+        right: 20%;
+    }
+
+    .img_sec_three_bottom .wrap_img .fiche_name_index {
+        top: 94%;
+        left: 20%;
+        width: 60%;
+        right: 20%;
+    }
+
+    .img_sec_three_bottom .absolute_background {
+        top: 46px;
+    }
+
+    .three {
+        margin-bottom: 50px;
+    }
+
+    #foot_principale {
+        margin-top: 150px;
+    }
+
+    #responsive_wrap_nav{
+        display: none;
+        position: fixed;;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: 300px;
+        background-color: #c9e430;
+        z-index: 3;
+        margin: 0 auto;
+        font-size: .8em;
+        padding: 2%;
+        overflow: scroll;
+    }
+
+
+    #responsive_wrap_nav::-webkit-scrollbar{
+        width: 8px;
+
+    }
+
+    #responsive_wrap_nav::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+        background-color: #395E1B;
+    }
+
+    .item_acces {
+        /* position: relative; */
+        /* height: 10%; */
+        border-bottom: none;
+        text-align: center;
+        list-style-type: none;
+        width: 73%;
+        padding: 4%;
+        margin-bottom: 8%;
+    }
+
+    .item_acces .hover_item_access{
+        color: #395E1B;
+    }
+
+    #responsive_wrap_nav ul{
+        width: 42%;
+        float: left;
+        margin-left: 8%;
+        /*background-color: #428bca;*/
+    }
+
+    .connect_float{
+        font-size: 15px;
+        margin-left: -107%
+    }
+}
 
 
 
 
+
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/********************* RESPONSIVE TABLETTE PAYSAGE ********************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape){
+
+
+
+    .wrap_connect {
+        top: 5%;
+    }
+
+    .two {
+        margin-top: 100px;
+    }
+
+    .img_sec_three_bottom .absolute_background {
+        top: 100px;
+    }
+
+
+    .img_sec_three_top .absolute_background {
+        top: -68px;
+    }
+
+    .wrap-hambuger {
+        top: 5%;
+
+    }
+
+
+
+}
+
+/**********************************************************************/
+/**********************************************************************/
+/********************** RESPONSIVE SMARTPHONE *************************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (max-width: 767px){
+
+
+    .wrap_compte{
+        width: 100%;
+        /*text-align: center;*/
+        margin-bottom: 50px;
+    }
+
+    .wrap_compte h2 {
+        font-size: 20px;
+    }
+
+    .wrap_compte p {
+        font-size: 13px;
+    }
+
+    .wrap_item_gestion .item_gestion {
+        width: 100%;
+        padding: 14px;
+        text-align: center;
+    }
+
+    .title_koinbio {
+        padding: 5px;
+        font-size: 20px;
+    }
+
+
+    .wrap_title_koinbio {
+        border-top: none;
+        padding: 6px;
+        padding-top: initial;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .img_sec_three_top {
+        margin-top: 400px;
+    }
+
+    .connect_float{
+        font-size: 14px;
+        margin-left: -92%;
+    }
+
+    .wrap_connect {
+        display: block;
+        position: absolute;
+        right: -1px;
+        color: #c9e430;
+        width: 50px;
+        height: 50px;
+        top: 2%;
+    }
+
+    .wrap_connect a{
+        text-decoration: none;
+        color: #c9e430;
+    }
+    .three {
+        margin-bottom: 30px;
+    }
+
+
+
+
+    .img_sec_three_bottom {
+        margin-top: -30px;
+    }
+
+    .img_sec_three_bottom .wrap_img .fiche_name_index {
+        top: 89%;
+        left: 22%;
+        width: 57%;
+        background-color: #c9e430;
+    }
+
+    .img_sec_three_bottom .wrap_img {
+        width: 100%;
+        margin-top: 12%;
+    }
+
+    .img_sec_three_top .absolute_background {
+        display: none;
+    }
+
+    .img_sec_three_bottom .absolute_background {
+    display: none;
+    }
+
+    .img_sec_three_top .wrap_img .fiche_name_index {
+        left: 22%;
+        width: 57%;
+        background-color: #c9e430;
+        top: -10%;
+
+    }
+    .img_sec_three_top .wrap_img {
+        float: none;
+        width: 100%;
+        margin-top: 12%;
+    }
+
+    .wrap_text_four {
+        padding: 6%;
+    }
+
+    .four_contain_border {
+        border-left: 1px solid #cbc5c5;
+        border-top: none;
+
+        padding: 10px;
+        width: 100%;
+        float: left;
+        height: inherit;
+    }
+
+    .wrap_img_four {
+        float: left;
+        width: 100%;
+        height: auto;
+    }
+    .wrap_two_img img {
+        width: 35%;
+        margin-top: 35%;
+    }
+
+    .wrap_two_img {
+        height: 140px;
+        width: 140px;
+        border-radius: 200px 200px 200px 200px;
+        -moz-border-radius: 200px 200px 200px 200px;
+        -webkit-border-radius: 200px 200px 200px 200px;
+        margin: 0 auto;
+        border: 1px solid #395E1B;
+    }
+
+    .two .two_sec {
+        width: 100%;
+        float: none;
+        padding: 40px;
+    }
+
+
+    .two {
+        margin-bottom: 140px;
+        border: none;
+    }
+
+    .one {
+        height: 40px;
+    }
+
+    .color-kaki-koin {
+        height: 60px;
+    }
+
+    #acces_wrap_absolute, #reseaux_wrap_absolute {
+        display:none;
+    }
+    #nav_float{
+        height: 60px;
+    }
+    #nav_float .wrap-logo {
+        margin: 0 auto;
+        width: 50px;
+        margin-top: 5px;
+    }
+    .wrap-logo img {
+        width: 30px;
+    }
+
+    .wrap-logo {
+        margin-top: -5px;
+    }
+
+    .wrap-hambuger {
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 2%;
+        color: #c9e430;
+        left: 1%;
+    }
+
+    .wrap_connect {
+        display: block;
+        position: absolute;
+        right: 1%;
+        color: #c9e430;
+        width: 50px;
+        height: 50px;
+        top: 2%;
+    }
+
+    .wrap_connect a{
+        text-decoration: none;
+        color: #c9e430;
+    }
+
+    .color-kaki-koin {
+        border-bottom: 2px solid #c9e430;
+    }
+
+    #responsive_wrap_nav{
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background-color: #c9e430;
+        z-index: 3;
+        margin: 0 auto;
+        font-size: 0.9em;
+        padding: 7%;
+        overflow: scroll;
+        /*border-bottom: 5px solid #395E1B;*/
+        box-shadow: 0 5px 5px -2px gray;
+    }
+
+
+
+    #responsive_wrap_nav::-webkit-scrollbar{
+        width: 8px;
+
+    }
+
+    #responsive_wrap_nav::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+        background-color: #395E1B;
+    }
+
+
+    .item_acces {
+        /* position: relative; */
+        /* height: 10%; */
+        border-bottom: none;
+        text-align: center;
+        list-style-type: none;
+        width: 100%;
+        padding: 4%;
+        margin-bottom: 8%;
+    }
+
+    .item_acces .hover_item_access{
+        color: #395E1B;
+    }
+
+    #responsive_wrap_nav ul{
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        padding: 0;
+        /*background-color: #428bca;*/
+    }
+
+    #foot_principale {
+        height: 140px;
+        margin-top:130px;
+    }
+
+}
+
+
+
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/********************* RESPONSIVE SMARTPHONE PAYSAGE ******************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (max-width: 767px) and (orientation:landscape){
+
+    .wrap_img_four img {
+        width: 100%;
+        height: auto;
+    }
+
+    .wrap_connect {
+    top:4%
+    }
+    #responsive_wrap_nav {
+        height: 300px;
+    }
+
+    .four {
+
+        height: 468px;
+        /*margin-bottom: 500px;*/
+    }
+    .wrap_img_four {
+        height: auto;
+    }
+    .two {
+        margin-top: 34px;
+    }
+
+    .three {
+        margin-bottom: 30px;
+        margin-top: 110px;
+    }
+
+
+    .img_sec_three_top .wrap_img .fiche_name_index {
+        top: -6%;
+    }
+
+    .img_sec_three_bottom .wrap_img {
+        margin-top: 8%;
+    }
+
+    .img_sec_three_bottom .wrap_img .fiche_name_index {
+        top: 93%;
+
+    }
+
+    .img_sec_three_bottom .wrap_img img {
+        margin-top: 11px;
+    }
+
+    #foot_principale {
+        margin-top: 120px;
+    }
+
+}

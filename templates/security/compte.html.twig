@@ -6,56 +6,90 @@
 
 
 {% block body %}
-
+{#{{ dump(user) }}#}
     <div class="wrap_title_koinbio"><h1 class="title_koinbio">Mon compte</h1></div>
 
+    <div class="wrap_compte">
+        <h2>Mon identité <span><a href="{{ path('profil_edit', { 'id': user.id}) }}"><i  title="Modifier" class="fa fa-pencil-square" aria-hidden="true"></i></a></span></h2>
+        <hr>
+        <div class="compte_item">
+            <p>Nom utilisateur : </p><p> {{ user.username }}</p>
+        </div>
+        <div class="compte_item">
+            <p>Email :</p><p>{{ user.email }}</p>
+        </div>
 
-{#    {{ dump(user) }}#}
+        <div class="compte_item">
+            <p>Code postal :</p><p>{% if user.postalCode is not null  %}{{ user.postalCode }} {% else %} Non renseigné{% endif %}</p>
+        </div>
+
+        <div class="compte_item">
+            <p>Commune :</p><p>{% if user.commune is not null  %}{{ user.commune }}{% else %} Non renseigné{% endif %}</p>
+        </div>
+
+        <div class="compte_item">
+            <p>Date d'inscription :</p><p>{% if user.createdAt is not null  %}{{ user.createdAt|date("d/m/Y") }}{% else %} Non renseigné{% endif %}</p>
+        </div>
+
+    </div>
+
+
+
+    <div class="wrap_compte">
+        <h2>Mes fiches <span> <a href="{{ path('mes_fiches') }}"> <i title="Voir" class="fa fa-eye" aria-hidden="true"></i></a></span></h2>
+        <hr>
+        <div class="compte_item">
+            <p>Nombre de fiches :</p><p><a href="{{ path('mes_fiches') }}"> {{ nbrfiches|length }}</a></p>
+        </div>
+
+    </div>
+
+    {#    {{ dump(user) }}#}
 
 
     <!--Table-->
-    <table class="table table-striped w-auto">
+    {#    <table class="table table-striped w-auto">#}
 
-        <!--Table head-->
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Nom utilisateur</th>
-            <th>Mail</th>
-            <th>Numéro de rue</th>
-            <th>Type de rue</th>
-            <th>Nom de la rue</th>
-            <th>code postale</th>
-            <th>Commune</th>
-        </tr>
-        </thead>
-        <!--Table head-->
+    {#        <!--Table head-->#}
+    {#        <thead>#}
+    {#        <tr>#}
+    {#            <th>#</th>#}
+    {#            <th>Nom utilisateur</th>#}
+    {#            <th>Mail</th>#}
+    {#            <th>Numéro de rue</th>#}
+    {#            <th>Type de rue</th>#}
+    {#            <th>Nom de la rue</th>#}
+    {#            <th>code postale</th>#}
+    {#            <th>Commune</th>#}
+    {#        </tr>#}
+    {#        </thead>#}
+    {#        <!--Table head-->#}
 
-        <!--Table body-->
-        <tbody>
-        <tr class="table-info">
-            <th scope="row">{{ user.id }}</th>
-            <td>{{ user.username }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.streetNumber }}</td>
+    {#        <!--Table body-->#}
+    {#        <tbody>#}
+    {#        <tr class="table-info">#}
+    {#            <th scope="row">{{ user.id }}</th>#}
+    {#            <td>{{ user.username }}</td>#}
+    {#            <td>{{ user.email }}</td>#}
+    {#            <td>{{ user.streetNumber }}</td>#}
 
-            <td>{{ user.streetType }}</td>
-            <td>{{ user.streetName }}</td>
-            <td>{{ user.postalCode }}</td>
-            <td>{{ user.commune }}</td>
-        </tr>
-
-
+    {#            <td>{{ user.streetType }}</td>#}
+    {#            <td>{{ user.streetName }}</td>#}
+    {#            <td>{{ user.postalCode }}</td>#}
+    {#            <td>{{ user.commune }}</td>#}
+    {#        </tr>#}
 
 
 
-        </tbody>
-        <!--Table body-->bas
 
 
-    </table>
+    {#        </tbody>#}
+    {#        <!--Table body-->#}
 
-    <h3>Votre nombre de fiches : <a href="{{ path('mes_fiches') }}"> {{ nbrfiches|length }}</a></h3>
+
+    {#    </table>#}
+
+    {#    <h3>Votre nombre de fiches : <a href="{{ path('mes_fiches') }}"> {{ nbrfiches|length }}</a></h3>#}
     <!--Table-->
 
 

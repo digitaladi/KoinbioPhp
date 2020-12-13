@@ -243,3 +243,114 @@
         right: 0;
     }
 }
+
+/***************** POSITION TABLETTE *************************/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .wrap_accroche, .wrap-inner {
+        width: 100%;
+        height: 100%;
+        margin-top: 24px;
+    }
+
+
+    .wrap-inner h1 {
+        font-size: 31px;
+        margin-bottom: 24px;
+        padding: 10px;
+
+    }
+
+    .wrap-inner p {
+        font-size: 22px;
+    }
+
+    .wrap_accroche a {
+        font-size: 18px;
+        width: 20%;
+        margin-top: 1%;
+    }
+
+}
+
+
+/***************** POSITION TABLETTE LANDSCAPE*************************/
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape){
+
+    .wrap_accroche, .wrap-inner {
+        width: 100%;
+        height: 100%;
+        margin-top: 70px;
+    }
+
+}
+
+
+
+/***************** SMARTPHONE *************************/
+@media screen and (max-width: 767px){
+
+
+    .wrap_accroche, .wrap-inner {
+        margin-top: 20px;
+    }
+
+    .csslider1 {
+        left: 0;
+        top: 53px;
+
+    }
+
+
+    .wrap-inner h1 {
+        padding: 8px;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+    .wrap-inner p {
+        font-size: 14px;
+    }
+
+    .wrap_accroche a {
+        font-size: 14px;
+        margin-top: -1%;
+    }
+
+
+}
+
+
+/***************** SMARTPHONE *************************/
+@media screen and (max-width: 767px) and (orientation:landscape){
+
+
+    .wrap_accroche, .wrap-inner {
+        margin-top: 51px;
+    }
+
+    .wrap-inner h1 {
+        padding: 8px;
+        font-size: 2em;
+        margin-bottom: 22px;
+    }
+
+    .wrap-inner p {
+        font-size: 17px;
+    }
+
+    .wrap_accroche a {
+        font-size: 14px;
+        margin-top: 5%;
+    }
+
+    .wrap-hambuger {
+        top: 4%;
+    }
+
+
+
+
+}
+
+
+
+

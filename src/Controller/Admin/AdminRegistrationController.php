@@ -56,7 +56,8 @@ class AdminRegistrationController extends AbstractController
             return $this->redirectToRoute('index');
         }
         $user = new User();
-//        dd($user);
+
+       // dd($user);
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(UserType::class, $user);
 
@@ -65,6 +66,8 @@ class AdminRegistrationController extends AbstractController
 //    var_dump($user->getRoles());
         if($form->isSubmitted() && $form->isValid()){
             $password = $encoder->encodePassword($user, $user->getPassword()) ;
+            $user->setCreatedAt(new \DateTime('now'));
+            $user->setUpdatedAt(new \DateTime('now'));
             $user->setPassword($password);
 
             $em->persist($user);
@@ -99,7 +102,7 @@ class AdminRegistrationController extends AbstractController
         $user = $em->getRepository(User::class)->find($id);
         $em->remove($user);
         $em->flush();
-        $this->addFlash('notice', "l'utilisateur est supprimé");
+        $this->addFlash('error', "l'utilisateur est supprimé");
         return $this->redirectToRoute('admin_index_user');
     }
 
@@ -136,6 +139,8 @@ class AdminRegistrationController extends AbstractController
 
         $em = $this->getDoctrine()->getManager();
         $user =  $em->getRepository(User::class)->find($id);
+        //dd($user);
+
         if($user){
             $editUserForm = $this->createForm(UserEditType::class, $user);
             $editUserForm->handleRequest($request);

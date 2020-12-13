@@ -18,17 +18,9 @@ class UserEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('username')
-            ->add('username')
             ->add('email')
-            ->add('street_number')
-            ->add('street_type')
-            ->add('street_name')
             ->add('postal_code')
             ->add('commune')
-            ->add('username')
-            ->add('fiche', EntityType::class, array('class' => Fiche::class,'expanded'  => true,
-                'multiple'  => true,'choice_label' => 'plant_name'
-            ))
             ->add('Modifier', SubmitType::class);
     }
 

@@ -125,12 +125,18 @@
     font-size: 0.9em;
 }
 
-.fiche_created{
-    margin-left: 1%;
+.bottom_fiche .fiche_created{
+    margin-top: 0.5%;
     font-style: italic;
-    float: left;
-    font-size: .9em;
-    padding: 5px;
+    font-size: .8em;
+    padding-left: 10px;
+    text-align: left;
+}
+.infos_contain .fiche_created{
+    margin-top: 7%;
+    font-style: italic;
+    font-size: .8em;
+    text-align: right;
 }
 
 .see_fiche{
@@ -138,6 +144,7 @@
     margin-right: 7px;
     color: #395E1B;
     padding: 4px;
+    margin-top: -4%;
 }
 
 .img_side_fiche_one{
@@ -181,8 +188,7 @@
 }
 
 .wrap_reseaux_fiche{
-    float: right;
-    margin-right: 3%;
+   font-size: 15px;
 }
 
 .wrap_reseaux_fiche i{
@@ -199,8 +205,9 @@ color: #c9e430;
     padding: 10px;
     width: 57%;
     height: auto;
-    margin-top: 300px;
+    margin-top: 100px;
     border: 1px solid #eee;
+    float: left;
 }
 
 .wrap_form_comment form{
@@ -269,3 +276,195 @@ color: #c9e430;
     margin-top: 4%;
     padding: 3%;
 }
+
+
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/*********************** RESPONSIVE TABLETTE **************************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .see_fiche {
+        margin-top: -6%;
+    }
+
+    .wrap_comments {
+        margin-top: 137%;
+    }
+
+    .fiche_img {
+        height: auto;
+    }
+
+    .title_koinbio {
+        padding: 8px;
+        font-size: 24px;
+    }
+
+    .wrap_title_koinbio {
+        border-top: none;
+        padding: 6px;
+        padding-top: initial;
+    }
+
+
+}
+
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/********************* RESPONSIVE TABLETTE PAYSAGE ********************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape){
+    #foot_principale {
+        height: 230px;
+
+    }
+    .see_fiche {
+        margin-top: -4.5%;
+    }
+
+}
+
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/********************** RESPONSIVE SMARTPHONE *************************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (max-width: 767px){
+
+
+    .wrap_form_comment{
+        width: 100%;
+    }
+
+    .bottom_fiche . {
+        margin-top: 0.9%;
+        font-style: italic;
+        font-size: .7em;
+        padding-left: 10px;
+        text-align: left;
+    }
+
+    .see_fiche {
+        margin-top: -11%;
+    }
+
+    .list_title_fiche {
+        margin-bottom: 1px;
+    }
+    .wrap_comments {
+        width: 100%;
+        margin-top: 6%;
+    }
+    .infos_side_fiche_one {
+        width: 100%;
+        float: none;
+        height: auto;
+        /* margin-top: 50px; */
+        /* background-color: #ebf2e3; */
+        border: 1px solid #cbc5c5;
+        padding: 10px;
+        border-top: none;
+    }
+
+
+    .wrap_fiche_one {
+        width: 100%;
+         background-color: transparent;
+        /* height: 550px; */
+        /* margin-bottom: 70px; */
+        color: #616161;
+        /* float: left; */
+    }
+
+    .img_side_fiche_one {
+        width: 100%;
+        float: none;
+        /* background-color: #428bca; */
+        height: auto;
+        padding: 10px;
+        border: 1px solid #cbc5c5;
+        border-bottom: none;
+
+    }
+
+    .img_side_fiche {
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+
+    .infos_side_fiche {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        height: 90%;
+    }
+
+    .wrap_fiche {
+        width: auto;
+        height: 400px;
+        margin-bottom: 412px;
+        color: #616161;
+    }
+
+    .koin_btn {
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/********************* RESPONSIVE SMARTPHONE PAYSAGE ******************/
+/**********************************************************************/
+/**********************************************************************/
+@media screen and (max-width: 767px) and (orientation:landscape){
+
+    /*.img_side_fiche {*/
+    /*    width: 50%;*/
+    /*}*/
+
+    /*.infos_side_fiche {*/
+    /*    width: 49%;*/
+    /*    !* background-color: bisque; *!*/
+    /*    float: left;*/
+    /*    margin-left: 5px;*/
+    /*    height: 90%;*/
+    /*}*/
+
+    .wrap_fiche {
+        margin-bottom: 520px;
+    }
+
+    .see_fiche {
+        margin-top: -8%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

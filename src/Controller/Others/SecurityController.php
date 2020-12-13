@@ -15,10 +15,12 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use DateTime;
 
 class SecurityController extends AbstractController
 {
@@ -52,7 +54,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="Registration_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $encoder){
+    public function register(Request $request, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer){
 
 
         // Si le visiteur est déjà identifié, on le redirige vers l'accueil
@@ -72,6 +74,8 @@ class SecurityController extends AbstractController
 
             ->add('username',TextType::class, ['label' => 'Votre pseudo'])
             ->add('email', EmailType::class, ['label' => 'Votre mail'])
+            ->add('postal_code', NumberType::class, ['label'=> 'Votre code postal'])
+            ->add('commune', TextType::class, ['label'=> 'Votre commune'])
 //            ->add('password', PasswordType::class)
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -98,6 +102,17 @@ class SecurityController extends AbstractController
 //            dd($user);
             $em->persist($user);
             $em->flush();
+
+
+            $message = (new \Swift_Message('Confirmation de votre inscription sur Koinbio'))
+                ->setFrom('aladi.timera1605@gmail.com')
+                ->setTo($user->getEmail())
+                ->setBody(
+                    $this->renderView('email/email_user.html.twig', ['name'=> $user->getUsername()]),
+                    'text/html'
+                );
+
+            $mailer->send($message);
 
             $this->addFlash('success','Utilisateur enregistré');
             return $this->redirectToRoute('index');
@@ -138,6 +153,53 @@ class SecurityController extends AbstractController
 
     }
 
+
+    /**
+     * @Route("/profil/edit/{id}", name="profil_edit")
+     */
+    public function editFicheUser($id, Request $request){
+
+
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('index');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->find($id);
+        if(!$user){
+            throw $this->createNotFoundException(" l' $id n'existe pas");
+        }else{
+
+            $form = $this->createFormBuilder($user)
+                ->add('username', TextType::class, ['label'=> "Votre pseudo"])
+                ->add('email', EmailType::class, ['label'=> 'Votre mail'])
+                ->add('postal_code', NumberType::class, ['label'=> 'Votre code postal'])
+                ->add('commune', TextType::class, ['label'=> 'Votre commune'])
+                ->add('modifier', SubmitType::class, ['label'=> 'Modifier','attr'=> ['class'=>'koin_btn btn']])
+                ->getForm();
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && $form->isValid()){
+                $user->setUpdatedAt(new DateTime('now',new \DateTimeZone('Europe/Paris')));
+                $em->persist($user);
+                $em->flush();
+
+
+
+                $this->addFlash('notice','Votre profil enregistré');
+           return   $this->redirectToRoute('compte_profil');
+
+            }
+
+            return $this->render('security/profil_edit.html.twig', array('edit_form'=> $form->createView()));
+
+
+
+        }
+
+
+
+    }
 
 
 

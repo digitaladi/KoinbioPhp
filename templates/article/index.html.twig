@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+
+    <div class="wrap_title_koinbio"> <h1 class="title_koinbio">Articles</h1></div>
+{#        {{ dump(articles_actifs) }}#}
+
+    {#        {% if  articles_actifs  is not empty %}#}
+    {#{% for articles_actif in articles_actifs %}#}
+
+    {#    <div class="card col-md-4">#}
+    {#        <img class="card-img-top" src="https://fakeimg.pl/300/" alt="Card image cap">#}
+
+    {#        <div class="card-body">#}
+    {#            <h5 class="card-title">{{ articles_actif.titre }}</h5>#}
+
+    {#            <a href="{{ path('article', { 'id': articles_actif.id  }) }}" class="btn btn-primary">Voir l'article</a>#}
+    {#        </div>#}
+    {#    </div>#}
+    {#{% endfor %}#}
+
+    {#    {% else %}#}
+    {#    <h3>Pas d'articles</h3>#}
+    {#    {% endif %}#}
+
+
+    {% for articles_actif in articles_actifs %}
+        <div class="blog-card">
+            <div class="meta">
+
+                <div class="photo"><img src="{{ asset('uploads/articles/'~ articles_actif.image ) }}" alt=""></div>
+                <ul class="details">
+                    <li class="author"><a href="#">{{ articles_actif.auteur }}</a></li>
+                    <li class="date">{{ articles_actif.createdAt|date('d/m/Y') }}</li>
+                    <li class="tags">
+                        <ul>
+                            <li><a href="#">{{ articles_actif.source }}</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="description">
+
+                <h2>{{ articles_actif.titre|slice(1,50) }}</h2>
+                <p>{{ articles_actif.corp|slice(1,150) }}...</p>
+                <p class="read-more">
+                    <a href="{{ path('article',{'id':articles_actif.id }) }}">Voir plus</a>
+                </p>
+            </div>
+        </div>
+    {% else %}
+        <h4>Pas d'articles</h4>
+
+{#        <div class="blog-card alt">#}
+{#            <div class="meta">#}
+{#                <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>#}
+{#                <ul class="details">#}
+{#                    <li class="author"><a href="#">Jane Doe</a></li>#}
+{#                    <li class="date">July. 15, 2015</li>#}
+{#                    <li class="tags">#}
+{#                        <ul>#}
+{#                            <li><a href="#">Learn</a></li>#}
+{#                            <li><a href="#">Code</a></li>#}
+{#                            <li><a href="#">JavaScript</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="description">#}
+{#                <h1>Mastering the Language</h1>#}
+{#                <h2>Java is not the same as JavaScript</h2>#}
+{#                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>#}
+{#                <p class="read-more">#}
+{#                    <a href="#">Read More</a>#}
+{#                </p>#}
+{#            </div>#}
+{#        </div>#}
+
+    {% endfor  %}
+
+{% endblock %}
