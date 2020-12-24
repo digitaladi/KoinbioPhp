@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" id="572687c1-5584-4913-8375-18bdfedf0cfb" customName="KoinBio.prod" nameFormat="CUSTOM" username="root">
+        <option name="customName" value="KoinBio.prod" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
