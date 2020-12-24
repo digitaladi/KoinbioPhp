@@ -8,8 +8,11 @@ use App\Entity\User;
 use App\Form\CommentaireType;
 use App\Form\FicheType;
 use DateTime;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
+use Knp\Snappy\Pdf;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -100,11 +103,10 @@ public function show($id, Request $request){
         $em->flush();
         $this->addFlash('success', 'Votre commentaire est publié ');
         return $this->redirectToRoute('fiche_show',['id'=>$id]);
-    }
+     }
     }
 
-
-        return $this->render('fiche/show.html.twig',array('fiche'=> $fiche, 'form_comment'=> $form_comment->createView(), 'listeCommentairesFiche'=>$listeCommentairesFiche));
+    return $this->render('fiche/show.html.twig',array('fiche'=> $fiche, 'form_comment'=> $form_comment->createView(), 'listeCommentairesFiche'=>$listeCommentairesFiche));
 }
 
 
@@ -178,6 +180,23 @@ public function show($id, Request $request){
     }
 
 
+    /**
+     * @Route("fiche/pdf", name="generate_pdf")
+     */
+    public function generatePdfFiche(Pdf $knpSnappyPdf){
+    //    dd($knpSnappyPdf);
+
+        $prenom = "Aladi";
+        $nom = "TIMERA";
+        $html =  $this->renderView('fiche/fiche_pdf.html.twig', ['nom' => $nom, 'prenom'=> $prenom]);
+      return new PdfResponse(
+          $knpSnappyPdf->getOutputFromHtml($html),
+          'file.pdf',
+          'application/pdf',
+          'attachment',
+          200,
+      );
+    }
 }
 
 

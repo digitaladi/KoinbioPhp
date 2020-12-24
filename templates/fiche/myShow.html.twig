@@ -50,7 +50,7 @@
             {#        </div>#}
 
             <div id="wrap_command_fiche_show">
-                <a href=""> Télécharger <i class="fa fa-upload" aria-hidden="true"></i></a> <br>
+                <a href="{{ path('generate_pdf') }}"> Télécharger <i class="fa fa-upload" aria-hidden="true"></i></a> <br>
                 <a href="{{ path('my_fiche_edit', {'id': fiche.id }) }}">  Modifier  <i class="fa fa-pencil-square" aria-hidden="true"></i></a><br>
 
                 <a href="{{ path('my_fiche_confirmation_delete', { 'id' : fiche.id }) }}">  Supprimer  <i class="fa fa-trash" aria-hidden="true"></i> </a><br>

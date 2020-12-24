@@ -6,6 +6,7 @@
 parameters:
     app.path.fiches_images: uploads/fiches
     app.path.articles_images: uploads/articles
+    app.path.fiches_pdf: snappy/pdf
 services:
     # default configuration for services in *this* file
     _defaults:
