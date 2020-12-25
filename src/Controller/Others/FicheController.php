@@ -185,7 +185,7 @@ public function show($id, Request $request){
      */
     public function generatePdfFiche(Pdf $knpSnappyPdf){
     //    dd($knpSnappyPdf);
-
+//test
         $prenom = "Aladi";
         $nom = "TIMERA";
         $html =  $this->renderView('fiche/fiche_pdf.html.twig', ['nom' => $nom, 'prenom'=> $prenom]);
