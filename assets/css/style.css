@@ -1147,7 +1147,7 @@ text-decoration: none;
 
     .two {
         margin-bottom: 140px;
-        border: none;
+        border: 1px solid #cbc5c5;
     }
 
     .one {
@@ -1263,6 +1263,10 @@ text-decoration: none;
     #foot_principale {
         height: 140px;
         margin-top:130px;
+    }
+
+    .wrap_two{
+        height: auto;
     }
 
 }
