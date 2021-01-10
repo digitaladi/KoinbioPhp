@@ -296,7 +296,7 @@
 
 /***************** SMARTPHONE *************************/
 @media screen and (max-width: 767px){
-
+/*demo*/
     #big_img_header{
         display: none;
     }
