@@ -9,6 +9,10 @@
     height: -webkit-fill-available;
 }
 
+#little_img_index{
+    display: none;
+}
+
 .csslider1 {
     display: inline-block;
     /*position: relative;*/
@@ -23,6 +27,10 @@
 
 .csslider1 img{
     width: 100%;
+}
+
+#little_img_index{
+    display: none;
 }
 
 /*//////// Variables ////////*/
@@ -289,14 +297,22 @@
 /***************** SMARTPHONE *************************/
 @media screen and (max-width: 767px){
 
+    #big_img_header{
+        display: none;
+    }
 
+    #little_img_index{
+        display: block;
+    }
     .wrap_accroche, .wrap-inner {
-        margin-top: 20px;
+        margin-top: 194px;
+        margin-bottom: 300px;
     }
 
     .csslider1 {
         left: 0;
         top: 53px;
+        /*display: none;*/
 
     }
 

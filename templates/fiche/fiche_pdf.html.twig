@@ -7,23 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #test_pdf_css{
+
+        body{
             background-color: #aacd4e;
+            height: auto;
+        }
+        #test_pdf_css{
             text-align: center;
-            padding: 10%;
-            margin: 0 auto;
+            /*padding: 0;*/
+            /*margin: 0 auto;*/
             font-family: 'Ink Free', sans-serif;
             color: #395E1B;
             font-size: 50px;
         }
     </style>
 </head>
-<body>
+<body >
 
 <div id="test_pdf_css">
     <h2>{{ nom }}</h2>
     <h2>{{ prenom }}</h2>
-{#    <img src="{{ asset('uploads/fiches/tomatoes.jpg') }}" alt="">#}
+{#    <img class="niv_background" src="{{ absolute_url(asset('uploads/fiches/tomatoes.jpg')) }}" alt="">#}
+    {#    <img src="{{ asset('uploads/fiches/tomatoes.jpg') }}" alt="">#}
+    <img src="{{ app.request.schemeAndHttpHost ~ asset('uploads/fiches/tomatoes.jpg') }}" alt="">
 </div>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam earum in itaque laboriosam

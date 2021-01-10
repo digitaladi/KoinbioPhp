@@ -3,7 +3,8 @@
 
 
 {% block body %}
-
+{#{{ dump(app.request.schemeAndHttpHost ~ asset('uploads/fiches/tomatoes.jpg')) }}#}
+{#    {{ dump(absolute_url(asset('uploads/fiches/'~ fiche.image ))) }}#}
     <div class="wrap_title_koinbio"><h1 class="title_koinbio">Fiche de plante {{ fiche.plantName }}</h1></div>
 
     <div class="wrap_fiche_one">
