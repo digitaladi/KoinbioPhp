@@ -176,6 +176,8 @@ class SecurityController extends AbstractController
                 ->add('postal_code', NumberType::class, ['label'=> 'Votre code postal'])
                 ->add('commune', TextType::class, ['label'=> 'Votre commune'])
                 ->add('modifier', SubmitType::class, ['label'=> 'Modifier','attr'=> ['class'=>'koin_btn btn']])
+
+
                 ->getForm();
             $form->handleRequest($request);
 
