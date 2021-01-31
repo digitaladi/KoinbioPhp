@@ -677,6 +677,7 @@ form{
 .wrap_two_img img{
     width: 40%;
     margin-top: 35%;
+
 }
 
 .two .two_sec p {
@@ -686,6 +687,7 @@ margin-top: 10%;
 .wrap_img_four{
     width: 37%;
     float: left;
+    height: inherit;
 }
 
 .wrap_img_four img{
