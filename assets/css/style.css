@@ -692,7 +692,7 @@ margin-top: 10%;
 
 .wrap_img_four img{
     width: 100%;
-    height: -webkit-fill-available;
+    height: inherit;
 }
 
 .wrap_two{
@@ -715,9 +715,11 @@ margin-top: 10%;
     width: 100%;
     background-color: #ebf2e3;
     height: -webkit-fill-available;
+
 }
 
 .wrap_text_four{
+    /**/
     padding: 15%;
 }
 
@@ -952,9 +954,6 @@ text-decoration: none;
         margin-left: -107%
     }
 }
-
-
-
 
 
 
